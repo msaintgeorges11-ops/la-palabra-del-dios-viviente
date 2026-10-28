@@ -55,6 +55,11 @@ footer a{color:#3a2a00}
 .aud button{width:100%;max-width:300px;font-size:17px!important;border:2px solid #fff;background:var(--y);color:#000;font-weight:bold;font-size:15px;border-radius:999px;padding:10px 14px;box-shadow:0 2px 6px rgba(120,80,0,.3);cursor:pointer}
 .aud .small{flex-basis:100%;margin:0;text-align:center}
 .hoy .tm{font-size:19px;font-weight:bold;margin:2px 0 4px}
+.caud{display:flex;gap:8px;align-items:center;flex-wrap:wrap;position:sticky;top:0;z-index:5;background:#fff;padding:8px 0;margin:0 0 6px;border-bottom:1px dashed var(--line)}
+.caud button{flex:1 1 150px;font-size:15px;border:2px solid #fff;background:var(--y);color:#000;font-weight:bold;border-radius:999px;padding:10px 14px;box-shadow:0 2px 6px rgba(120,80,0,.3);cursor:pointer}
+.vsel{flex:1 1 130px;font-size:15px;padding:9px 8px;border:2px solid var(--b);border-radius:12px;background:#fff;color:#000;max-width:100%}
+.aud .vsel{width:100%;max-width:300px;flex:0 0 auto}
+.texto p.rd{background:var(--soft);border-radius:8px;box-shadow:0 0 0 4px var(--soft)}
 .tabs{position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;justify-content:center;background:var(--y);border-top:2px solid #fff3c4;box-shadow:0 -4px 14px rgba(120,80,0,.25);padding:8px 6px calc(8px + env(safe-area-inset-bottom,0px))}
 .tabs button{flex:1;max-width:100px;background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;color:#000;font-weight:bold}
 .tabs button span{display:block;padding:6px 16px;border-radius:999px;font-size:20px;line-height:1;background:#fff;border:2px solid #fff;box-shadow:0 2px 5px rgba(120,80,0,.3)}
@@ -238,6 +243,7 @@ function chapter(b,c){
         var nb=document.createElement('b');nb.textContent=(i+1)+' ';
         p.appendChild(nb);p.appendChild(document.createTextNode(v));w.appendChild(p);
       });
+      chapAudio(w,b,c,txt);
     });
   });
   return d;
@@ -246,7 +252,7 @@ fill('listNT','n');
 fill('listAT','a');
 
 // ---- Pestañas ----
-function setTab(t){if(t!=='hoy'&&typeof aStop==='function')aStop();
+function setTab(t){if(typeof aStop==='function')aStop();
   document.querySelector('.wrap').dataset.active=t;
   document.querySelectorAll('.tabs button').forEach(function(b){b.classList.toggle('on',b.dataset.go===t)});
   window.scrollTo(0,0);
@@ -263,25 +269,64 @@ function arr(v){return Array.isArray(v)?v:[v]}
 function chunks(t){var o=[],c='';t.split(/(?<=[.!?:;])\s+/).forEach(function(s){if((c+' '+s).length>200&&c){o.push(c);c=s}else c=c?c+' '+s:s});if(c)o.push(c);return o}
 var MES={};
 function loadMes(k,cb){if(k in MES)return;MES[k]=null;try{fetch('hoy-'+k+'.json').then(function(r){return r.ok?r.json():null}).then(function(j){if(j){MES[k]=j;cb()}}).catch(function(){})}catch(e){}}
-var AQ=[],AI=0,AS=0;
-function aUpd(){var p=document.getElementById('aPlay');if(!p)return;p.textContent=AS===1?'⏹ Parar':(AS===2?'▶ Continuar':'🔊 Escuchar')}
-function aVoice(){var v=window.speechSynthesis.getVoices();for(var i=0;i<v.length;i++)if(/^es/i.test(v[i].lang))return v[i];return null}
+var AQ=[],HQ=[],AI=0,AS=0,AT=0,AO=null,AR=null;
+var VN=['👩 Mujer 1','👩 Mujer 2','👨 Hombre 1','👨 Hombre 2'],VI=0;
+try{var sv=parseInt(localStorage.getItem('vozSel'),10);if(sv>=0&&sv<4)VI=sv}catch(e){}
+var MAL=/\b(jorge|juan|pablo|raul|raúl|alvaro|álvaro|diego|carlos|enrique|miguel|male|hombre|masculin|andres|andrés|antonio|gonzalo|tomas|tomás|santiago|alberto|pedro)\b/i;
+var FEM=/(female|mujer|femenin|helena|laura|sabina|elvira|dalia|paloma|monica|mónica|paulina|lucia|lucía|marisol|esperanza|ximena|camila|paola|elena|catalina|angelica|angélica|francisca|google espa)/i;
+function esVoices(){try{var v=window.speechSynthesis.getVoices().filter(function(x){return /^es/i.test(x.lang.replace('_','-'))});
+  v.sort(function(a,b){var r=function(x){return /es[-_]ES/i.test(x.lang)?0:(/es[-_](MX|US|419)/i.test(x.lang)?1:2)};return r(a)-r(b)});return v}catch(e){return[]}}
+function aProfile(i){
+  var all=esVoices(),F=[],M=[],U=[];
+  all.forEach(function(v){if(MAL.test(v.name))M.push(v);else if(FEM.test(v.name))F.push(v);else U.push(v)});
+  var fem=i<2,k=i%2,pool=fem?F:M,v=pool[k],exact=!!v;
+  if(!v){var un=fem?U:U.slice().reverse();v=un[k]||un[0]||pool[0]||all[0]||null}
+  return {v:v,pitch:exact?1:(fem?(k?1.18:1.05):(k?.9:.72))};
+}
 function aSpeak(){
   if(AS!==1)return;if(AI>=AQ.length){aStop();return}
-  var u=new SpeechSynthesisUtterance(AQ[AI]);u.lang='es-ES';var v=aVoice();if(v){u.voice=v;u.lang=v.lang}u.rate=.92;
-  var nx=function(){if(AS===1){AI++;aSpeak()}};u.onend=nx;u.onerror=nx;window.speechSynthesis.speak(u);
+  var it=AQ[AI],tx=typeof it==='string'?it:it.t;
+  if(it.p){if(AR)AR.classList.remove('rd');AR=it.p;AR.classList.add('rd');try{AR.scrollIntoView({block:'center',behavior:'smooth'})}catch(e){}}
+  var tk=++AT,u=new SpeechSynthesisUtterance(tx),pr=aProfile(VI);u.lang='es-ES';
+  if(pr.v){u.voice=pr.v;u.lang=pr.v.lang}u.rate=.92;u.pitch=pr.pitch;
+  var nx=function(){if(AS===1&&tk===AT){AI++;aSpeak()}};u.onend=nx;u.onerror=nx;window.speechSynthesis.speak(u);
 }
-function aPlay(){
+function aUpd(){document.querySelectorAll('.aBtn').forEach(function(p){p.textContent=(p===AO&&AS)?(AS===1?'⏹ Parar':'▶ Continuar'):(p.dataset.l||'🔊 Escuchar')});
+  document.querySelectorAll('.vsel').forEach(function(x){x.value=VI})}
+function aToggle(btn,q){
   if(!('speechSynthesis' in window)){alert('Tu navegador no permite el audio.');return}
-  if(AS===1){aPause();return}
-  if(AS===2){AS=1;aUpd();aSpeak();return}
-  window.speechSynthesis.cancel();AS=1;AI=0;aUpd();aSpeak();
+  if(AO===btn&&AS===1){AS=2;AT++;window.speechSynthesis.cancel();aUpd();return}
+  if(AO===btn&&AS===2){AS=1;aUpd();aSpeak();return}
+  AT++;window.speechSynthesis.cancel();AO=btn;AQ=typeof q==='function'?q():q;AS=1;AI=0;aUpd();aSpeak();
 }
-function aPause(){if(AS===1){AS=2;window.speechSynthesis.cancel();aUpd()}}
-function aStop(){AS=0;AI=0;try{window.speechSynthesis.cancel()}catch(e){}aUpd()}
+function aStop(){AS=0;AI=0;AT++;try{window.speechSynthesis.cancel()}catch(e){}if(AR){AR.classList.remove('rd');AR=null}aUpd()}
+function mkSel(){
+  var s=document.createElement('select');s.className='vsel';s.setAttribute('aria-label','Voz');
+  VN.forEach(function(n,i){var o=document.createElement('option');o.value=i;o.textContent=n;s.appendChild(o)});
+  s.value=VI;
+  s.addEventListener('change',function(){
+    VI=+s.value;try{localStorage.setItem('vozSel',VI)}catch(e){}
+    var was=AS===1;aUpd();
+    if(was){AT++;window.speechSynthesis.cancel();AS=1;aSpeak()}
+  });
+  return s;
+}
+function chapAudio(w,b,c,txt){
+  var bar=document.createElement('div');bar.className='caud';
+  var btn=document.createElement('button');btn.type='button';btn.className='aBtn';btn.textContent='🔊 Escuchar';
+  var ps=w.querySelectorAll('p');
+  btn.onclick=function(){aToggle(btn,function(){
+    var q=[{t:b.n+', capítulo '+c+'.'}];
+    txt[c-1].forEach(function(v,i){
+      var p=ps[i];q.push({t:'Versículo '+(i+1)+'.',p:p});
+      chunks(v.replace(/[\[\]]/g,'')).forEach(function(z){q.push({t:z,p:p})});
+    });return q})};
+  bar.appendChild(btn);bar.appendChild(mkSel());w.insertBefore(bar,w.firstChild);
+}
+try{window.speechSynthesis.onvoiceschanged=function(){}}catch(e){}
 function renderHoy(){
   var box=document.getElementById('hoyBox');if(!box)return;
-  aStop();
+  if(AO&&AO.id==='aPlay')aStop();
   var d=new Date(),day=Math.floor(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/864e5),pm=d.getHours()>=12?1:0;
   var key=('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2),ev=EVT[key],ym=d.getFullYear()+'-'+key.slice(0,2),mo=MES[ym],dd=mo&&mo[key.slice(3)],fx=dd&&dd[pm?'t':'m'],x=fx||((!pm&&ev)?ev:HOY[(day*2+pm)%HOY.length]);
   loadMes(ym,function(){if(AS===0)renderHoy()});
@@ -292,31 +337,31 @@ function renderHoy(){
   }
   var open=pm?'Gracias, Señor, por este día; nos hiciste pasar bien la jornada. ':'Gracias, Señor, por esta nueva mañana y por la noche que me hiciste pasar bien. ';
   var f=d.toLocaleDateString('es',{weekday:'long',day:'numeric',month:'long'}),words=0;
-  box.innerHTML='';AQ=[];
+  box.innerHTML='';HQ=[];
   box.appendChild(el('h2',null,'📰 Artículo de hoy · '+(pm?'🌇 Tarde':'🌅 Mañana')));
   box.appendChild(el('p','small',f.charAt(0).toUpperCase()+f.slice(1)));
   box.appendChild(el('div','tm','Tema: '+x.t));
-  var au=el('div','aud');au.innerHTML='<button type="button" id="aPlay">🔊 Escuchar</button>';
+  var au=el('div','aud');au.innerHTML='<button type="button" id="aPlay" class="aBtn">🔊 Escuchar</button>';au.appendChild(mkSel());
   var dur=el('p','small','');au.appendChild(dur);box.appendChild(au);
-  box.appendChild(el('h3',null,'📖 Versículos de hoy'));AQ.push('Versículos de hoy.');
+  box.appendChild(el('h3',null,'📖 Versículos de hoy'));HQ.push('Versículos de hoy.');
   x.v.slice(0,2).forEach(function(r){
     var m=r.match(/^(\S+) (\d+):(\d+)(?:-(\d+))?$/),k=m[1],c=+m[2],a=+m[3],b=+(m[4]||m[3]),t=[];
     for(var i=a;i<=b;i++){var T=BK[k];if(T&&T[c-1]&&T[c-1][i-1])t.push(T[c-1][i-1])}
     var lab=bookName(k)+' '+c+':'+a+(b>a?'-'+b:''),w=el('div','vs');w.appendChild(el('b',null,lab));
     w.appendChild(document.createTextNode(t.join(' ')));box.appendChild(w);
     var tx=t.join(' ').replace(/[\[\]]/g,'');words+=tx.split(/\s+/).length;
-    AQ.push(bookName(k)+', capítulo '+c+', versículo'+(b>a?'s '+a+' al '+b:' '+a)+'.');chunks(tx).forEach(function(z){AQ.push(z)});
+    HQ.push(bookName(k)+', capítulo '+c+', versículo'+(b>a?'s '+a+' al '+b:' '+a)+'.');chunks(tx).forEach(function(z){HQ.push(z)});
   });
   function sec(title,v,pre){
-    box.appendChild(el('h3',null,title));AQ.push(title.replace(/^\S+\s/,'')+'.');
-    arr(v).forEach(function(t,i){var z=(i===0&&pre?pre:'')+t;box.appendChild(el('p',null,z));words+=z.split(/\s+/).length;chunks(z).forEach(function(c){AQ.push(c)})});
+    box.appendChild(el('h3',null,title));HQ.push(title.replace(/^\S+\s/,'')+'.');
+    arr(v).forEach(function(t,i){var z=(i===0&&pre?pre:'')+t;box.appendChild(el('p',null,z));words+=z.split(/\s+/).length;chunks(z).forEach(function(c){HQ.push(c)})});
   }
   sec('🙏 Oración de hoy',x.o,open);
   sec((x===ev||x.e)?'📅 Un día como hoy':'📚 Historia de hoy',x.h);
   if(pm&&ev&&!fx)sec('📅 Un día como hoy',ev.h);
   sec('✝️ Mensaje de hoy',x.m);
   dur.textContent='⏱ Duración aproximada: '+Math.max(1,Math.round(words/150))+' min';
-  document.getElementById('aPlay').onclick=aPlay;aUpd();
+  var ab=document.getElementById('aPlay');ab.onclick=function(){aToggle(ab,HQ)};aUpd();
   var nx=new Date(d.getFullYear(),d.getMonth(),d.getDate(),pm?24:12,0,1);
   clearTimeout(renderHoy.t);renderHoy.t=setTimeout(renderHoy,Math.max(1000,nx-new Date()));
 }
