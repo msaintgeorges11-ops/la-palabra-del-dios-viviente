@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LA PALABRA DEL DIOS VIVIENTE 💌 - palabra-dios.com</title>
+<meta name="description" content="La Palabra de Dios, gratis y para todos. Lee la Biblia en biblia-palabra-dios.com, busca cualquier versículo y descubre artículos libres sobre cada libro.">
+<link rel="canonical" href="https://palabra-dios.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="La Palabra del Dios Viviente">
+<meta property="og:title" content="LA PALABRA DEL DIOS VIVIENTE 💌 - palabra-dios.com">
+<meta property="og:description" content="La Palabra de Dios, gratis y para todos. Lee la Biblia en biblia-palabra-dios.com, busca cualquier versículo y descubre artículos libres sobre cada libro.">
+<meta property="og:url" content="https://palabra-dios.com/">
+<meta name="theme-color" content="#b8892f">
+<style>
+:root{--y:linear-gradient(180deg,#fcc93f 0%,#f7b82c 100%);--b:#b8892f;--bd:#9d7424;--line:#eadfbf;--muted:#555;--soft:#fbf1d6}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#f8c03a;background:radial-gradient(ellipse at 20% 15%,rgba(255,225,130,.55),transparent 55%),radial-gradient(ellipse at 85% 60%,rgba(255,215,110,.35),transparent 50%),linear-gradient(180deg,#f9c43f 0%,#f7bb34 45%,#f2ab26 100%);background-attachment:fixed;min-height:100%}
+body{color:#000;font-family:Arial,Helvetica,sans-serif;display:flex;justify-content:center;-webkit-font-smoothing:antialiased}
+.wrap{width:100%;max-width:500px;padding:10px 10px 100px}
+a{color:inherit}
+header{background:#fff;border-radius:20px;padding:16px;text-align:center}
+header h1{font-size:19px;font-weight:bold;letter-spacing:.5px}
+header p{font-size:13px;margin-top:6px;color:var(--muted)}
+.badge{display:inline-block;background:var(--y);color:#000;font-weight:bold;font-size:11px;padding:3px 8px;border-radius:10px;margin-top:8px}
+.card{background:#fff;border-radius:20px;padding:14px;margin-top:12px;text-align:center}
+.card h2{font-size:15px;color:#000;margin-bottom:8px}
+.small{font-size:14px;color:var(--muted);margin-top:6px}
+.hero{max-width:230px;margin:0 auto}
+.hero svg{width:100%;height:auto;display:block}
+.inp{width:100%;padding:12px;font-size:18px;border:2px solid var(--b);border-radius:12px;text-align:center;margin-top:8px;background:#fff;color:#000}
+.inp:focus{outline:none;border-color:var(--bd)}
+button.main{margin-top:12px;width:100%;padding:14px;font-size:16px;font-weight:bold;border:none;border-radius:999px;background:var(--y);color:#000;border:2px solid #fff;box-shadow:0 2px 6px rgba(120,80,0,.3);cursor:pointer}
+#msg{color:#a33;min-height:1.3rem;margin-top:8px;font-size:14px}
+.bk{display:flex;justify-content:space-between;align-items:center;gap:10px;text-decoration:none;background:#fff;border-radius:14px;padding:14px 16px;margin-top:8px;border:1px solid var(--line)}
+.bk .bn{font-weight:bold;font-size:16px;letter-spacing:.04em}
+.bk .bc{color:var(--muted);font-size:13px;white-space:nowrap}
+.bk:active{background:var(--soft)}
+.go{display:block;text-decoration:none;text-align:center;background:var(--y);color:#000;font-weight:bold;border-radius:999px;padding:14px;margin-top:12px;border:2px solid #fff;box-shadow:0 2px 6px rgba(120,80,0,.3)}
+.go.alt{background:#fff;color:#000;border:2px solid #f7b82c}
+.btn-of{display:inline-block;text-decoration:none;font-size:17px;font-weight:bold;color:#000;background:var(--y);padding:12px 26px;border-radius:999px;margin-top:10px;border:2px solid #fff;box-shadow:0 2px 6px rgba(120,80,0,.3)}
+.disc,footer{font-size:13px;color:#3a2a00;text-align:center;line-height:1.6;margin-top:14px}
+footer a{color:#3a2a00}
+.wrap[data-active="home"] [data-tab]:not([data-tab="home"]),
+.wrap[data-active="nt"] [data-tab]:not([data-tab="nt"]),
+.wrap[data-active="at"] [data-tab]:not([data-tab="at"]),
+.wrap[data-active="art"] [data-tab]:not([data-tab="art"]),
+.wrap[data-active="of"] [data-tab]:not([data-tab="of"]){display:none!important}
+.wrap[data-active="hoy"] [data-tab]:not([data-tab="hoy"]){display:none!important}
+.hoy h3{font-size:15px;margin:14px 0 4px;color:var(--bd)}
+.hoy p{text-align:left;font-size:15px;line-height:1.55;margin-top:6px}
+.hoy .vs{background:var(--soft);border-radius:12px;padding:10px 12px;margin-top:8px}
+.hoy .vs b{display:block;font-size:13px;color:var(--bd);margin-bottom:2px}
+.aud{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:8px 0 4px;position:sticky;top:6px;z-index:5;background:#fff;padding:6px 0}
+.aud button{width:100%;max-width:300px;font-size:17px!important;border:2px solid #fff;background:var(--y);color:#000;font-weight:bold;font-size:15px;border-radius:999px;padding:10px 14px;box-shadow:0 2px 6px rgba(120,80,0,.3);cursor:pointer}
+.aud .small{flex-basis:100%;margin:0;text-align:center}
+.hoy .tm{font-size:19px;font-weight:bold;margin:2px 0 4px}
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;justify-content:center;background:var(--y);border-top:2px solid #fff3c4;box-shadow:0 -4px 14px rgba(120,80,0,.25);padding:8px 6px calc(8px + env(safe-area-inset-bottom,0px))}
+.tabs button{flex:1;max-width:100px;background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;color:#000;font-weight:bold}
+.tabs button span{display:block;padding:6px 16px;border-radius:999px;font-size:20px;line-height:1;background:#fff;border:2px solid #fff;box-shadow:0 2px 5px rgba(120,80,0,.3)}
+.tabs button small{font-size:10px;line-height:1.1;text-align:center;color:#000;font-weight:bold}
+.tabs button.on span{border-color:#000}
+.libro{background:#fff;border-radius:16px;margin-top:10px;overflow:hidden;border:2px solid #fff;box-shadow:0 2px 6px rgba(120,80,0,.25)}
+.libro[open]{border-color:#f7b82c}
+.libro>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 16px;background:#fff}
+.libro summary::-webkit-details-marker{display:none}
+.libro>summary::after{content:"＋";font-size:22px;line-height:1;font-weight:bold;margin-left:6px}
+.libro[open]>summary::after{content:"－"}
+.libro .bn{font-weight:bold;font-size:16px;letter-spacing:.04em;margin-right:auto}
+.libro .bc{font-size:13px;color:#000;white-space:nowrap}
+.caps{padding:6px 10px 12px}
+.cap{border-top:1px dashed var(--line)}
+.cap>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:12px 6px;font-weight:bold;font-size:15px}
+.cap>summary::-webkit-details-marker{display:none}
+.cap>summary::after{content:"＋";color:var(--bd);font-size:18px}
+.cap[open]>summary::after{content:"－"}
+.cap small{font-weight:normal;color:var(--muted);font-size:13px}
+.leer{display:block;text-decoration:none;text-align:center;background:var(--y);color:#000;font-weight:bold;border-radius:999px;padding:10px;margin:2px 0 10px;border:2px solid #fff;box-shadow:0 2px 5px rgba(120,80,0,.25)}
+.vs{display:flex;flex-wrap:wrap;gap:6px;padding-bottom:10px}
+.vs a{display:inline-flex;align-items:center;justify-content:center;min-width:42px;height:42px;padding:0 6px;font-size:15px;font-weight:bold;text-decoration:none;color:#000;background:#fff;border:2px solid #f7b82c;border-radius:10px}
+.vs a:active{background:#f7b82c}
+.texto{padding:2px 6px 14px;font-size:16px;line-height:1.7;text-align:left}
+.texto p,.texto div{margin:0 0 8px}
+.texto sup,.texto .num,.texto b,.texto strong{color:var(--bd)}
+.texto a{text-decoration:none}
+.texto h2,.texto h3{font-size:16px;margin:8px 0}
+a.cap{display:flex;justify-content:space-between;align-items:center;padding:12px 6px;font-weight:bold;font-size:15px;text-decoration:none;color:#000;border-top:1px dashed var(--line)}
+a.cap i{font-style:normal;color:var(--bd);font-size:22px;line-height:1}
+a.cap:active{background:var(--soft)}
+details.cap{border-top:1px dashed var(--line)}
+.texto p{margin:0 0 10px}
+.texto b{margin-right:2px}
+</style>
+</head>
+<body>
+<div class="wrap" data-active="home">
+
+<header>
+  <h1>LA PALABRA DEL DIOS VIVIENTE 💌</h1>
+  <p>La Palabra de Dios, gratis y para todos · biblia-palabra-dios.com</p>
+  <span class="badge">📖 Biblia gratis</span>
+</header>
+
+<!-- INICIO -->
+<div class="card" data-tab="home">
+  <div class="hero" role="img" aria-label="Santa Biblia con cubierta de cuero y cruz dorada"><svg viewBox="0 0 300 340" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<radialGradient id="glow" cx="50%" cy="48%" r="55%"><stop offset="0%" stop-color="#fff3c9" stop-opacity=".95"/><stop offset="60%" stop-color="#fbe8b0" stop-opacity=".35"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<linearGradient id="cov" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7a4a24"/><stop offset=".5" stop-color="#5a3216"/><stop offset="1" stop-color="#3a200c"/></linearGradient>
+<linearGradient id="spine" x1="0" x2="1"><stop offset="0" stop-color="#2c1608"/><stop offset="1" stop-color="#5a3216"/></linearGradient>
+<linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff0a8"/><stop offset=".5" stop-color="#e8b730"/><stop offset="1" stop-color="#b8861a"/></linearGradient>
+<linearGradient id="pg" x1="0" x2="1"><stop offset="0" stop-color="#e9dcb4"/><stop offset="1" stop-color="#fffaf0"/></linearGradient>
+</defs>
+<ellipse cx="150" cy="165" rx="150" ry="165" fill="url(#glow)"/>
+<ellipse cx="156" cy="318" rx="104" ry="9" fill="#000" opacity=".22"/>
+<rect x="72" y="44" width="182" height="262" rx="7" fill="url(#pg)" stroke="#cdb77f" stroke-width="1.5"/>
+<g stroke="#cdb77f" stroke-width="1" opacity=".8"><line x1="244" y1="52" x2="244" y2="298"/><line x1="248" y1="52" x2="248" y2="298"/><line x1="80" y1="300" x2="246" y2="300"/><line x1="80" y1="303" x2="248" y2="303"/></g>
+<rect x="58" y="30" width="182" height="262" rx="8" fill="url(#cov)" stroke="#24120a" stroke-width="2"/>
+<rect x="58" y="30" width="24" height="262" rx="8" fill="url(#spine)"/>
+<g stroke="url(#gold)" stroke-width="2" fill="none" opacity=".9"><line x1="82" y1="40" x2="82" y2="282"/><line x1="86" y1="40" x2="86" y2="282"/></g>
+<rect x="98" y="46" width="130" height="230" rx="4" fill="none" stroke="url(#gold)" stroke-width="2.5"/>
+<rect x="104" y="52" width="118" height="218" rx="3" fill="none" stroke="url(#gold)" stroke-width="1" opacity=".8"/>
+<g fill="url(#gold)"><rect x="157" y="72" width="12" height="62" rx="2"/><rect x="138" y="90" width="50" height="12" rx="2"/></g>
+<g stroke="url(#gold)" stroke-width="1.5" stroke-linecap="round" opacity=".85"><line x1="163" y1="60" x2="163" y2="68"/><line x1="146" y1="64" x2="150" y2="70"/><line x1="180" y1="64" x2="176" y2="70"/></g>
+<text x="163" y="170" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="24" font-weight="bold" letter-spacing="3" fill="url(#gold)">SANTA</text>
+<text x="163" y="198" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="24" font-weight="bold" letter-spacing="3" fill="url(#gold)">BIBLIA</text>
+<line x1="124" y1="212" x2="202" y2="212" stroke="url(#gold)" stroke-width="1.5"/>
+<text x="163" y="232" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="11" font-style="italic" fill="#f3d37a">biblia-palabra-dios.com</text>
+<text x="163" y="256" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="9" letter-spacing="2" fill="#e8b730">PALABRA-DIOS.COM</text>
+<path d="M196 292 L196 326 L205 318 L214 326 L214 292 Z" fill="#b3201f" stroke="#7a1010" stroke-width="1"/>
+</svg></div>
+</div>
+
+<form class="card" data-tab="home" id="form" role="search" autocomplete="off">
+  <h2>🔎 Busca el versículo que quieras</h2>
+  <p class="small">Ejemplo: Juan 3 16</p>
+  <input class="inp" id="q" type="search" placeholder="Juan 3 16" enterkeyhint="search">
+  <button class="main" type="submit">Buscar</button>
+  <div id="msg" role="status" aria-live="polite"></div>
+</form>
+
+<div class="card" data-tab="home">
+  <h2>📚 Lee la Biblia</h2>
+  <button class="go" type="button" data-go="nt" style="width:100%;border:0;font-size:16px;cursor:pointer">📖 Nuevo Testamento · 27 libros</button>
+  <button class="go alt" type="button" data-go="at" style="width:100%;font-size:16px;cursor:pointer">📜 Antiguo Testamento · 39 libros</button>
+  <a class="go alt" href="/acerca-de">🕊️ Acerca de Dios</a>
+  <button class="go alt" type="button" data-go="hoy" style="width:100%;font-size:16px;cursor:pointer">📰 Artículo de hoy</button>
+</div>
+
+<!-- ARTÍCULO DE HOY -->
+<div class="card hoy" data-tab="hoy" id="hoyBox"></div>
+<div class="card" data-tab="hoy"><button class="go alt" type="button" data-go="home" style="width:100%;font-size:16px;cursor:pointer">← Volver al inicio</button></div>
+
+<!-- NUEVO TESTAMENTO -->
+<div class="card" data-tab="nt">
+  <h2>📖 NUEVO TESTAMENTO</h2>
+  <p class="small">27 libros · abre un libro, luego un capítulo, y toca el versículo</p>
+</div>
+<div id="listNT" data-tab="nt"></div>
+
+<!-- ANTIGUO TESTAMENTO -->
+<div class="card" data-tab="at">
+  <h2>📜 ANTIGUO TESTAMENTO</h2>
+  <p class="small">39 libros · abre un libro, luego un capítulo, y toca el versículo</p>
+</div>
+<div id="listAT" data-tab="at"></div>
+
+<!-- OFRENDA -->
+<div class="card" data-tab="art">
+  <h2>💌 Apoya esta obra</h2>
+  <p class="small">La Palabra de Dios aquí es gratuita, sin anuncios y para todos. Cada ofrenda ayuda a mantener esta luz encendida.</p>
+  <a class="btn-of" href="https://www.paypal.com/ncp/payment/VGKXM24EEL6YS" target="_blank" rel="noopener noreferrer">❤️ Ofrendar</a>
+</div>
+
+<!-- ARTÍCULOS -->
+<div class="card" data-tab="art">
+  <h2>📰 ARTÍCULOS</h2>
+  <p class="small">Artículos libres sobre cada libro de la Biblia.</p>
+  <a class="go" href="/articulos/">📰 Ver todos los artículos</a>
+</div>
+
+<footer>La Palabra del Dios Viviente · biblia-palabra-dios.com</footer>
+</div>
+
+<nav class="tabs" aria-label="Menú principal">
+  <button data-go="home" class="on"><span>🏠</span><small>Inicio</small></button>
+  <button data-go="nt"><span>📖</span><small>Nuevo Test.</small></button>
+  <button data-go="at"><span>📜</span><small>Antiguo Test.</small></button>
+  <button data-go="art"><span>📰</span><small>Artículos</small></button>
+</nav>
+
+<script>
+(function(){
+var B=[{"s":"mateo","n":"Mateo","c":28,"v":[25,23,17,25,48,34,29,34,38,42,30,50,58,36,39,28,27,35,30,34,46,46,39,51,46,75,66,20],"t":"n"},{"s":"marcos","n":"Marcos","c":16,"v":[45,28,35,41,43,56,37,38,50,52,33,44,37,72,47,20],"t":"n"},{"s":"lucas","n":"Lucas","c":24,"v":[80,52,38,44,39,49,50,56,62,42,54,59,35,35,32,31,37,43,48,47,38,71,56,53],"t":"n"},{"s":"juan","n":"Juan","c":21,"v":[51,25,36,54,47,71,53,59,41,42,57,50,38,31,27,33,26,40,42,31,25],"t":"n"},{"s":"hechos","n":"Hechos","c":28,"v":[26,47,26,37,42,15,60,40,43,48,30,25,52,28,41,40,34,28,41,38,40,30,35,27,27,32,44,31],"t":"n"},{"s":"romanos","n":"Romanos","c":16,"v":[32,29,31,25,21,23,25,39,33,21,36,21,14,23,33,27],"t":"n"},{"s":"1-corintios","n":"1 Corintios","c":16,"v":[31,16,23,21,13,20,40,13,27,33,34,31,13,40,58,24],"t":"n"},{"s":"2-corintios","n":"2 Corintios","c":13,"v":[24,17,18,18,21,18,16,24,15,18,33,21,14],"t":"n"},{"s":"galatas","n":"Gálatas","c":6,"v":[24,21,29,31,26,18],"t":"n"},{"s":"efesios","n":"Efesios","c":6,"v":[23,22,21,32,33,24],"t":"n"},{"s":"filipenses","n":"Filipenses","c":4,"v":[30,30,21,23],"t":"n"},{"s":"colosenses","n":"Colosenses","c":4,"v":[29,23,25,18],"t":"n"},{"s":"1-tesalonicenses","n":"1 Tesalonicenses","c":5,"v":[10,20,13,18,28],"t":"n"},{"s":"2-tesalonicenses","n":"2 Tesalonicenses","c":3,"v":[12,17,18],"t":"n"},{"s":"1-timoteo","n":"1 Timoteo","c":6,"v":[20,15,16,16,25,21],"t":"n"},{"s":"2-timoteo","n":"2 Timoteo","c":4,"v":[18,26,17,22],"t":"n"},{"s":"tito","n":"Tito","c":3,"v":[16,15,15],"t":"n"},{"s":"filemon","n":"Filemón","c":1,"v":[25],"t":"n"},{"s":"hebreos","n":"Hebreos","c":13,"v":[14,18,19,16,14,20,28,13,28,39,40,29,25],"t":"n"},{"s":"santiago","n":"Santiago","c":5,"v":[27,26,18,17,20],"t":"n"},{"s":"1-pedro","n":"1 Pedro","c":5,"v":[25,25,22,19,14],"t":"n"},{"s":"2-pedro","n":"2 Pedro","c":3,"v":[21,22,18],"t":"n"},{"s":"1-juan","n":"1 Juan","c":5,"v":[10,29,24,21,21],"t":"n"},{"s":"2-juan","n":"2 Juan","c":1,"v":[13],"t":"n"},{"s":"3-juan","n":"3 Juan","c":1,"v":[14],"t":"n"},{"s":"judas","n":"Judas","c":1,"v":[25],"t":"n"},{"s":"apocalipsis","n":"Apocalipsis","c":22,"v":[20,29,22,11,14,17,17,13,21,11,19,17,18,20,8,21,18,24,21,15,27,21],"t":"n"},{"s":"genesis","n":"Génesis","c":50,"v":[31,25,24,26,32,22,24,22,29,32,32,20,18,24,21,16,27,33,38,18,34,24,20,67,34,35,46,22,35,43,55,32,20,31,29,43,36,30,23,23,57,38,34,34,28,34,31,22,33,26],"t":"a"},{"s":"exodo","n":"Éxodo","c":40,"v":[22,25,22,31,23,30,25,32,35,29,10,51,22,31,27,36,16,27,25,26,36,31,33,18,40,37,21,43,46,38,18,35,23,35,35,38,29,31,43,38],"t":"a"},{"s":"levitico","n":"Levítico","c":27,"v":[17,16,17,35,19,30,38,36,24,20,47,8,59,57,33,34,16,30,37,27,24,33,44,23,55,46,34],"t":"a"},{"s":"numeros","n":"Números","c":36,"v":[54,34,51,49,31,27,89,26,23,36,35,16,33,45,41,50,13,32,22,29,35,41,30,25,18,65,23,31,40,16,54,42,56,29,34,13],"t":"a"},{"s":"deuteronomio","n":"Deuteronomio","c":34,"v":[46,37,29,49,33,25,26,20,29,22,32,32,18,29,23,22,20,22,21,20,23,30,25,22,19,19,26,68,29,20,30,52,29,12],"t":"a"},{"s":"josue","n":"Josué","c":24,"v":[18,24,17,24,15,27,26,35,27,43,23,24,33,15,63,10,18,28,51,9,45,34,16,33],"t":"a"},{"s":"jueces","n":"Jueces","c":21,"v":[36,23,31,24,31,40,25,35,57,18,40,15,25,20,20,31,13,31,30,48,25],"t":"a"},{"s":"rut","n":"Rut","c":4,"v":[22,23,18,22],"t":"a"},{"s":"1-samuel","n":"1 Samuel","c":31,"v":[28,36,21,22,12,21,17,22,27,27,15,25,23,52,35,23,58,30,24,42,15,23,29,22,44,25,12,25,11,31,13],"t":"a"},{"s":"2-samuel","n":"2 Samuel","c":24,"v":[27,32,39,12,25,23,29,18,13,19,27,31,39,33,37,23,29,33,43,26,22,51,39,25],"t":"a"},{"s":"1-reyes","n":"1 Reyes","c":22,"v":[53,46,28,34,18,38,51,66,28,29,43,33,34,31,34,34,24,46,21,43,29,53],"t":"a"},{"s":"2-reyes","n":"2 Reyes","c":25,"v":[18,25,27,44,27,33,20,29,37,36,21,21,25,29,38,20,41,37,37,21,26,20,37,20,30],"t":"a"},{"s":"1-cronicas","n":"1 Crónicas","c":29,"v":[54,55,24,43,26,81,40,40,44,14,47,40,14,17,29,43,27,17,19,8,30,19,32,31,31,32,34,21,30],"t":"a"},{"s":"2-cronicas","n":"2 Crónicas","c":36,"v":[17,18,17,22,14,42,22,18,31,19,23,16,22,15,19,14,19,34,11,37,20,12,21,27,28,23,9,27,36,27,21,33,25,33,27,23],"t":"a"},{"s":"esdras","n":"Esdras","c":10,"v":[11,70,13,24,17,22,28,36,15,44],"t":"a"},{"s":"nehemias","n":"Nehemías","c":13,"v":[11,20,32,23,19,19,73,18,38,39,36,47,31],"t":"a"},{"s":"ester","n":"Ester","c":10,"v":[22,23,15,17,14,14,10,17,32,3],"t":"a"},{"s":"job","n":"Job","c":42,"v":[22,13,26,21,27,30,21,22,35,22,20,25,28,22,35,22,16,21,29,29,34,30,17,25,6,14,23,28,25,31,40,22,33,37,16,33,24,41,30,24,34,17],"t":"a"},{"s":"salmos","n":"Salmos","c":150,"v":[6,12,8,8,12,10,17,9,20,18,7,8,6,7,5,11,15,50,14,9,13,31,6,10,22,12,14,9,11,12,24,11,22,22,28,12,40,22,13,17,13,11,5,26,17,11,9,14,20,23,19,9,6,7,23,13,11,11,17,12,8,12,11,10,13,20,7,35,36,5,24,20,28,23,10,12,20,72,13,19,16,8,18,12,13,17,7,18,52,17,16,15,5,23,11,13,12,9,9,5,8,28,22,35,45,48,43,13,31,7,10,10,9,8,18,19,2,29,176,7,8,9,4,8,5,6,5,6,8,8,3,18,3,3,21,26,9,8,24,13,10,7,12,15,21,10,20,14,9,6],"t":"a"},{"s":"proverbios","n":"Proverbios","c":31,"v":[33,22,35,27,23,35,27,36,18,32,31,28,25,35,33,33,28,24,29,30,31,29,35,34,28,28,27,28,27,33,31],"t":"a"},{"s":"eclesiastes","n":"Eclesiastés","c":12,"v":[18,26,22,16,20,12,29,17,18,20,10,14],"t":"a"},{"s":"cantares","n":"Cantares","c":8,"v":[17,17,11,16,16,13,13,14],"t":"a"},{"s":"isaias","n":"Isaías","c":66,"v":[31,22,26,6,30,13,25,22,21,34,16,6,22,32,9,14,14,7,25,6,17,25,18,23,12,21,13,29,24,33,9,20,24,17,10,22,38,22,8,31,29,25,28,28,25,13,15,22,26,11,23,15,12,17,13,12,21,14,21,22,11,12,19,12,25,24],"t":"a"},{"s":"jeremias","n":"Jeremías","c":52,"v":[19,37,25,31,31,30,34,22,26,25,23,17,27,22,21,21,27,23,15,18,14,30,40,10,38,24,22,17,32,24,40,44,26,22,19,32,21,28,18,16,18,22,13,30,5,28,7,47,39,46,64,34],"t":"a"},{"s":"lamentaciones","n":"Lamentaciones","c":5,"v":[22,22,66,22,22],"t":"a"},{"s":"ezequiel","n":"Ezequiel","c":48,"v":[28,10,27,17,17,14,27,18,11,22,25,28,23,23,8,63,24,32,14,49,32,31,49,27,17,21,36,26,21,26,18,32,33,31,15,38,28,23,29,49,26,20,27,31,25,24,23,35],"t":"a"},{"s":"daniel","n":"Daniel","c":12,"v":[21,49,30,37,31,28,28,27,27,21,45,13],"t":"a"},{"s":"oseas","n":"Oseas","c":14,"v":[11,23,5,19,15,11,16,14,17,15,12,14,16,9],"t":"a"},{"s":"joel","n":"Joel","c":3,"v":[20,32,21],"t":"a"},{"s":"amos","n":"Amós","c":9,"v":[15,16,15,13,27,14,17,14,15],"t":"a"},{"s":"abdias","n":"Abdías","c":1,"v":[21],"t":"a"},{"s":"jonas","n":"Jonás","c":4,"v":[17,10,10,11],"t":"a"},{"s":"miqueas","n":"Miqueas","c":7,"v":[16,13,12,13,15,16,20],"t":"a"},{"s":"nahum","n":"Nahúm","c":3,"v":[15,13,19],"t":"a"},{"s":"habacuc","n":"Habacuc","c":3,"v":[17,20,19],"t":"a"},{"s":"sofonias","n":"Sofonías","c":3,"v":[18,15,20],"t":"a"},{"s":"hageo","n":"Hageo","c":2,"v":[15,23],"t":"a"},{"s":"zacarias","n":"Zacarías","c":14,"v":[21,13,10,14,11,15,14,23,17,12,17,14,9,21],"t":"a"},{"s":"malaquias","n":"Malaquías","c":4,"v":[14,17,18,6],"t":"a"}];
+var A={mt:"mateo",mat:"mateo",mr:"marcos",mc:"marcos",lc:"lucas",luc:"lucas",jn:"juan",jua:"juan",hch:"hechos",hc:"hechos",ro:"romanos",rom:"romanos",co:"corintios",cor:"corintios",ga:"galatas",gal:"galatas",ef:"efesios",efe:"efesios",fil:"filipenses",flp:"filipenses",col:"colosenses",ts:"tesalonicenses",tes:"tesalonicenses",tim:"timoteo",ti:"timoteo",tit:"tito",flm:"filemon",fm:"filemon",heb:"hebreos",he:"hebreos",stg:"santiago",sant:"santiago",snt:"santiago",pe:"pedro",ped:"pedro",jud:"judas",ju:"judas",ap:"apocalipsis",apoc:"apocalipsis",rev:"apocalipsis",gn:"genesis",lv:"levitico",nm:"numeros",dt:"deuteronomio",jue:"jueces",jc:"jueces",rt:"rut",sam:"samuel",rey:"reyes",cr:"cronicas",esd:"esdras",neh:"nehemias",est:"ester",sl:"salmos",pr:"proverbios",prov:"proverbios",ec:"eclesiastes",cant:"cantares",cnt:"cantares",is:"isaias",jer:"jeremias",lm:"lamentaciones",ez:"ezequiel",dn:"daniel",os:"oseas",jl:"joel",am:"amos",abd:"abdias",jon:"jonas",miq:"miqueas",nah:"nahum",hab:"habacuc",sof:"sofonias",hag:"hageo",zac:"zacarias",mal:"malaquias"};
+
+// ---- Libros -> capítulos -> versículos (se crean al abrir, para ir rápido) ----
+function fill(id,t){
+  var box=document.getElementById(id);box.innerHTML='';
+  B.forEach(function(b){
+    if(b.t!==t)return;
+    var d=document.createElement('details');d.className='libro';
+    var sm=document.createElement('summary');
+    sm.innerHTML='<span class="bn">'+b.n.toUpperCase()+'</span><span class="bc">'+b.c+(b.c>1?' capítulos':' capítulo')+'</span>';
+    d.appendChild(sm);
+    var caps=document.createElement('div');caps.className='caps';d.appendChild(caps);
+    d.addEventListener('toggle',function(){
+      if(!d.open||caps.dataset.ok)return;caps.dataset.ok='1';
+      for(var c=1;c<=b.c;c++)caps.appendChild(chapter(b,c));
+    });
+    box.appendChild(d);
+  });
+}
+var BK={},BQ={},FL={};
+function loadBook(k,cb){
+  if(k in BK){cb(BK[k]);return}
+  var t='a';for(var i=0;i<B.length;i++)if(B[i].s===k)t=B[i].t;
+  var f='biblia-'+(t==='n'?'nt':'at')+'.json';
+  if(FL[f]&&FL[f].d){BK[k]=FL[f].d[k]||[];cb(BK[k]);return}
+  if(FL[f]){FL[f].q.push([k,cb]);return}
+  FL[f]={q:[[k,cb]]};
+  var done=function(d){FL[f].d=d;FL[f].q.forEach(function(x){BK[x[0]]=d[x[0]]||[];x[1](BK[x[0]])})};
+  try{fetch(f).then(function(r){return r.ok?r.json():{}}).then(done).catch(function(){done({})})}catch(e){done({})}
+}
+function chapter(b,c){
+  var n=b.v[c-1];
+  var lab='<span>Capítulo '+c+' <small>· '+n+(n>1?' versículos':' versículo')+'</small></span>';
+  var d=document.createElement('details');d.className='cap';
+  var sm=document.createElement('summary');sm.innerHTML=lab;d.appendChild(sm);
+  d.addEventListener('toggle',function(){
+    if(!d.open||d.dataset.ok)return;d.dataset.ok='1';
+    var w=document.createElement('div');w.className='texto';w.textContent='Cargando…';d.appendChild(w);
+    loadBook(b.s,function(txt){
+      w.textContent='';
+      if(!txt[c-1]){delete d.dataset.ok;w.textContent='No se pudo cargar el texto. Abre el sitio en línea e inténtalo de nuevo.';return}
+      txt[c-1].forEach(function(v,i){
+        var p=document.createElement('p');p.id=b.s+'-'+c+'-'+(i+1);
+        var nb=document.createElement('b');nb.textContent=(i+1)+' ';
+        p.appendChild(nb);p.appendChild(document.createTextNode(v));w.appendChild(p);
+      });
+    });
+  });
+  return d;
+}
+fill('listNT','n');
+fill('listAT','a');
+
+// ---- Pestañas ----
+function setTab(t){if(t!=='hoy'&&typeof aStop==='function')aStop();
+  document.querySelector('.wrap').dataset.active=t;
+  document.querySelectorAll('.tabs button').forEach(function(b){b.classList.toggle('on',b.dataset.go===t)});
+  window.scrollTo(0,0);
+}
+document.querySelectorAll('[data-go]').forEach(function(b){b.addEventListener('click',function(){setTab(b.dataset.go)})});
+setTab('home');
+
+// ---- Artículo de hoy (cambia solo: mañana y 6 pm) ----
+var EVT={"10-28":{"t":"La victoria viene de Dios","v":["salmos 20:7","1-corintios 15:57","juan 16:33"],"h":["Estamos a 28 de octubre. Un día como hoy, del año 312, se libró cerca de Roma la batalla del Puente Milvio. De un lado estaba el emperador Majencio, con un ejército muy superior en número; del otro, Constantino, que venía desde las Galias con muchos menos soldados. Durante los años anteriores, los cristianos habían vivido la llamada Gran Persecución: sus templos fueron derribados, sus Biblias quemadas y muchos murieron por no negar a Cristo.","Los historiadores antiguos cuentan lo que ocurrió la víspera del combate de maneras distintas. Lactancio, escritor cristiano de la época, dice que Constantino recibió en sueños la orden de marcar los escudos de sus soldados con el signo de Cristo. Eusebio, años más tarde, relató que el propio emperador le contó haber visto en el cielo una cruz de luz sobre el sol, con las palabras: con este signo vencerás. Los historiadores debaten los detalles, pero coinciden en que Constantino atribuyó su victoria al Dios de los cristianos.","En la batalla, el ejército de Majencio fue derrotado. Al retirarse, intentaron cruzar el río Tíber por un puente de barcas que se derrumbó, y el propio Majencio se ahogó. Constantino entró en Roma como vencedor. Poco después, en el año 313, junto a Licinio, proclamó en Milán la libertad de culto para los cristianos. Terminó así una época de dolor, y la iglesia pudo reunirse a la luz del día. Con los años, esa libertad también trajo nuevos desafíos para la fe, pero aquel día marcó un cambio enorme en la historia."],"o":["Padre celestial, en esta mañana nos presentamos delante de ti con gratitud. Tú eres el Dios que gobierna la historia, que levanta y derriba reinos, y que cuida de su iglesia en cada generación. Hoy recordamos cómo, en tiempos de gran persecución, tú no abandonaste a tu pueblo.","Señor, te pedimos por cada persona que escucha esta oración. Por quien enfrenta una batalla que parece más grande que sus fuerzas: una enfermedad, una deuda, un conflicto en la familia, una angustia que no lo deja descansar. Que sepa hoy que la victoria no depende de la fuerza de los carros ni de los caballos, sino de tu nombre. Dale valor, claridad para decidir y paz en el corazón.","Guárdanos de confiar en nuestras propias armas. Enséñanos a depender de ti en lo pequeño y en lo grande. Bendice nuestros hogares, nuestro trabajo y nuestros pasos de este día. Y que, al terminar la jornada, podamos decir que tu mano nos sostuvo. Todo esto lo pedimos en el nombre de Jesús, amén."],"m":["Hay días en que la batalla parece perdida antes de empezar. El ejército contrario es más grande, la deuda más alta, el diagnóstico más serio. Los cristianos del año 312 sentían algo parecido: habían sufrido durante años, y pocos creían que la situación cambiaría. Pero la historia de Dios nos enseña que él no se apura, y tampoco llega tarde.","El salmo dice que unos confían en carros y otros en caballos, pero nosotros del nombre de Jehová nuestro Dios tendremos memoria. Esa es la clave: la memoria. Recordar lo que Dios ya hizo. Recordar cuántas veces te sostuvo cuando pensabas que no podías más. Quien recuerda las victorias del pasado tiene valor para el presente. Haz hoy una lista en tu mente de cinco momentos en que Dios te ayudó, y dale gracias por cada uno.","Pablo escribió: gracias a Dios, que nos da la victoria por medio de nuestro Señor Jesucristo. Fíjate: no dice que la victoria se consigue, sino que se da. La victoria que más importa ya fue ganada en la cruz y en la resurrección. No peleamos para ser aceptados, sino desde la aceptación. Eso cambia la manera de enfrentar el día: con humildad, pero también con esperanza firme.","Y Jesús lo dijo con claridad: en el mundo tendréis aflicción, pero confiad, yo he vencido al mundo. Tendremos problemas, pero no estamos solos. Hoy, antes de salir a enfrentar lo que viene, detente un momento, respira, y entrégale a Dios eso que más te pesa. Díselo con tus palabras. Él escucha. Y camina este día sabiendo que quien va contigo ya venció."]},"10-31":{"t":"La salvación es por gracia","v":["efesios 2:8-9","romanos 3:23-24","romanos 1:17"],"h":"El 31 de octubre de 1517, el monje Martín Lutero publicó en Wittenberg sus 95 tesis, llamando a volver a la Escritura. Su descubrimiento fue que el justo vive por la fe y no por obras. Así comenzó la Reforma protestante.","o":"Señor, gracias porque somos salvos por tu gracia y no por nuestros méritos. Sostén nuestra fe en tu Palabra. En el nombre de Jesús, amén.","m":"No hay que ganarse el amor de Dios: se recibe por fe. Descansa hoy en lo que Cristo ya hizo por ti."},"12-25":{"t":"Nació el Salvador","v":["lucas 2:10-11","isaias 9:6","juan 3:16"],"h":"Hoy la iglesia celebra el nacimiento de Jesús en Belén. Los ángeles anunciaron a unos pastores una gran alegría para todo el pueblo: había nacido el Salvador, que es Cristo el Señor.","o":"Padre, gracias por darnos a tu Hijo. Que su luz llene nuestro hogar y nuestro corazón en este día. En el nombre de Jesús, amén.","m":"Dios no envió un mensaje desde lejos: vino Él mismo. Recibe hoy su regalo y compártelo con alguien."},"10-06":{"t":"El valor de la Palabra","v":["salmos 119:105","2-timoteo 3:16-17","hebreos 4:12"],"h":"El 6 de octubre de 1536, William Tyndale fue ejecutado por traducir la Biblia al inglés común. Según se cuenta, sus últimas palabras fueron pedir a Dios que abriera los ojos del rey de Inglaterra.","o":"Señor, gracias por quienes dieron su vida para que leyéramos tu Palabra. Danos hambre de ella cada día. En el nombre de Jesús, amén.","m":"Hoy tienes en tus manos lo que otros pagaron con su vida. Ábrela, léela, y deja que alumbre tu camino."},"05-24":{"t":"Un corazón transformado","v":["ezequiel 36:26","2-corintios 5:17","romanos 8:16"],"h":"El 24 de mayo de 1738, en una reunión en la calle Aldersgate de Londres, John Wesley sintió su corazón extrañamente calentado al escuchar la lectura de Romanos. Confió en Cristo para su salvación, y de ahí nació un gran avivamiento.","o":"Señor, renueva mi corazón. Quita lo frío y lo duro, y llénalo de tu Espíritu. En el nombre de Jesús, amén.","m":"Dios puede cambiar un corazón en un instante con su Palabra. Pídele hoy que renueve el tuyo."},"07-06":{"t":"Firmes en la verdad","v":["juan 8:32","mateo 5:10","2-timoteo 4:7"],"h":"El 6 de julio de 1415, el reformador checo Jan Hus fue quemado en Constanza por defender la autoridad de la Escritura y negarse a retractarse contra su conciencia. Su fidelidad inspiró a muchos después.","o":"Padre, danos valor para ser fieles a tu verdad, aun cuando cueste. En el nombre de Jesús, amén.","m":"La verdad te hace libre, pero también te pide firmeza. Hoy, elige lo correcto delante de Dios, aunque nadie te aplauda."},"04-09":{"t":"El costo de seguir a Cristo","v":["lucas 9:23","1-juan 3:16","proverbios 31:8"],"h":"El 9 de abril de 1945, el pastor alemán Dietrich Bonhoeffer fue ejecutado por oponerse al régimen nazi. Había enseñado que la gracia no es barata, y que seguir a Cristo implica obediencia y valentía.","o":"Señor, haznos valientes para defender al débil y obedecerte. En el nombre de Jesús, amén.","m":"Seguir a Jesús cuesta, pero vale más que todo. Hoy, alza tu voz por alguien que no tiene quien hable por él."},"09-30":{"t":"Amor por la Escritura","v":["salmos 119:11","josue 1:8","colosenses 3:16"],"h":"El 30 de septiembre del año 420 murió Jerónimo en Belén. Dedicó su vida a estudiar la Biblia y la tradujo al latín, la versión conocida como Vulgata, que se leyó por siglos.","o":"Señor, gracias por tu Palabra. Que more en abundancia en mí y guíe mis pasos. En el nombre de Jesús, amén.","m":"Quien guarda la Palabra en el corazón tiene luz en el día difícil. Lee hoy aunque sea un capítulo."},"12-31":{"t":"La Palabra permanece","v":["isaias 40:8","mateo 24:35","1-pedro 1:25"],"h":"El 31 de diciembre de 1384 murió John Wycliffe, quien impulsó la primera traducción de toda la Biblia al inglés, copiada a mano. Quería que cada persona pudiera leer la Palabra en su idioma.","o":"Padre, gracias por este año y por tu fidelidad. Que tu Palabra siga siendo mi guía. En el nombre de Jesús, amén.","m":"Todo pasa, pero la Palabra del Señor permanece para siempre. Termina el año anclado en ella."},"09-05":{"t":"Servir a los demás","v":["mateo 25:40","santiago 2:17","proverbios 19:17"],"h":"El 5 de septiembre de 1997 murió la Madre Teresa de Calcuta, quien dedicó su vida a cuidar a los pobres, enfermos y moribundos de la India, viendo a Cristo en cada uno de ellos.","o":"Señor, abre mis ojos a la necesidad que me rodea y dame manos dispuestas a servir. En el nombre de Jesús, amén.","m":"Lo que haces por el más pequeño, lo haces por Jesús. Hoy, haz un acto de bondad en silencio."},"02-18":{"t":"No me avergüenzo del evangelio","v":["romanos 1:16","salmos 119:130","2-timoteo 2:15"],"h":"El 18 de febrero de 1546 murió Martín Lutero en Eisleben. Además de iniciar la Reforma, tradujo la Biblia al alemán para que el pueblo común pudiera leerla.","o":"Padre, que nunca me avergüence de tu evangelio, poder de Dios para salvación. En el nombre de Jesús, amén.","m":"El evangelio sigue transformando vidas. Compártelo hoy con una palabra o con tu ejemplo."},"01-06":{"t":"Buscar a Jesús","v":["mateo 2:1-2","mateo 2:10-11","isaias 60:1"],"h":"Hoy se recuerda la Epifanía, la visita de los magos de Oriente. Siguieron una estrella desde lejos, adoraron al niño Jesús y le ofrecieron oro, incienso y mirra.","o":"Señor, ayúdanos a buscarte con todo el corazón y a adorarte con lo mejor que tenemos. En el nombre de Jesús, amén.","m":"Los que buscan a Jesús lo encuentran. Hoy, dale lo mejor de tu tiempo y de tu corazón."},"01-25":{"t":"Dios cambia vidas","v":["hechos 9:3-6","galatas 2:20","1-timoteo 1:15"],"h":"Hoy la iglesia recuerda la conversión de Saulo, quien perseguía a los cristianos. En el camino a Damasco Jesús le habló desde una luz, y se convirtió en Pablo, apóstol y autor de gran parte del Nuevo Testamento.","o":"Señor, gracias porque nadie está fuera de tu alcance. Transforma lo que haga falta en mí. En el nombre de Jesús, amén.","m":"Nadie es demasiado lejano para Dios. Ora hoy por alguien que parece lejos de Él."}};
+var HOY=[{"t":"La fe","v":["hebreos 11:1","romanos 10:17","marcos 11:22-24"],"o":"Señor, aumenta mi fe. Ayúdame a confiar en ti aun cuando no veo el camino, y a dar hoy un paso de obediencia. En el nombre de Jesús, amén.","h":"Pedro vio a Jesús caminando sobre el mar y le pidió ir a Él. Dio unos pasos sobre las aguas, pero al mirar el viento fuerte tuvo miedo y comenzó a hundirse. Clamó: «Señor, sálvame», y Jesús le tendió la mano al instante.","m":"La fe no es la ausencia de tormentas, sino mirar a Jesús en medio de ellas. Cuando ponemos los ojos en el viento nos hundimos; cuando los ponemos en Cristo, Él nos sostiene. Hoy, da un paso de fe en algo que Dios te ha pedido, y confía en que su mano está más cerca de lo que piensas."},{"t":"La paz","v":["juan 14:27","filipenses 4:6-7","isaias 26:3"],"o":"Padre, entrego en tus manos mis preocupaciones. Llena mi corazón de tu paz, esa que el mundo no puede dar ni quitar. En el nombre de Jesús, amén.","h":"Una noche, los discípulos cruzaban el lago cuando se levantó una gran tormenta. Jesús dormía en la popa. Lo despertaron con miedo, y Él reprendió al viento y dijo al mar: «Calla, enmudece». Y hubo grande bonanza.","m":"Jesús no prometió una vida sin tormentas, sino su paz en medio de ellas. La paz de Dios nace cuando presentamos cada preocupación en oración, con gratitud. Hoy, nombra delante de Dios eso que te quita el sueño, déjalo en sus manos, y descansa: Él guarda tu corazón y tus pensamientos."},{"t":"La esperanza","v":["jeremias 29:11","romanos 15:13","lamentaciones 3:22-23"],"o":"Dios de esperanza, cuando todo parece oscuro recuérdame que tus planes son de bien. Renueva mis fuerzas esta mañana. En el nombre de Jesús, amén.","h":"José fue vendido por sus hermanos y terminó en una cárcel de Egipto, olvidado. Pero Dios estaba con él. Años después fue puesto como gobernador y salvó a su familia y a muchos pueblos. Él dijo: «Vosotros pensasteis mal contra mí, mas Dios lo encaminó a bien».","m":"Lo que hoy parece un final puede ser el inicio de un propósito. Dios no desperdicia nuestras lágrimas ni nuestras esperas. Sus misericordias se renuevan cada mañana. Hoy, no mires solo tu situación presente: mira al Dios fiel que tiene pensamientos de paz y un futuro para ti."},{"t":"El amor","v":["1-corintios 13:4-7","1-juan 4:19","juan 13:34"],"o":"Señor, tú me amaste primero. Enséñame a amar a los demás con paciencia y bondad, como tú me amas. En el nombre de Jesús, amén.","h":"Un hombre fue asaltado y dejado medio muerto en el camino. Pasaron un sacerdote y un levita, y siguieron de largo. Un samaritano se detuvo, lo curó, lo llevó a una posada y pagó todos los gastos. Jesús concluyó: «Ve, y haz tú lo mismo».","m":"Amar no es un sentimiento pasajero, es una decisión que se vuelve acción. El samaritano no preguntó quién era su prójimo: se hizo prójimo. Hoy, Dios pondrá a alguien en tu camino que necesita una palabra, una ayuda o un poco de tiempo. Ámalo con hechos, y así mostrarás el amor de Cristo."},{"t":"El perdón","v":["efesios 4:32","mateo 6:14-15","colosenses 3:13"],"o":"Padre, gracias por perdonarme tanto. Dame un corazón dispuesto a perdonar a quien me hirió, y sana lo que duele dentro de mí. En el nombre de Jesús, amén.","h":"Un hijo pidió su herencia, se fue lejos y lo malgastó todo. Hambriento, decidió volver a casa. Cuando aún estaba lejos, su padre lo vio, corrió a abrazarlo y lo vistió con la mejor ropa. Hizo una fiesta, porque «este mi hijo muerto era, y ha revivido».","m":"El perdón de Dios nos alcanza antes de que terminemos de pedirlo. Quien ha recibido tanta gracia puede darla. Perdonar no es olvidar ni decir que el daño no importó: es soltar la deuda y confiar a Dios la justicia. Hoy, libera a alguien del peso que has cargado, y descubre la libertad que Dios te da."},{"t":"La fortaleza","v":["isaias 40:31","filipenses 4:13","salmos 46:1"],"o":["Señor y Padre nuestro, gracias por esta tarde. Gracias porque nos has sostenido durante toda la mañana, en el trabajo, en las preocupaciones, en las conversaciones y en los silencios. Nos presentamos delante de ti reconociendo que sin ti nada podemos hacer, y que contigo todo es posible.","Te pedimos por las personas que hoy se sienten cansadas, con los hombros cargados y el ánimo por el suelo. Por quien perdió la esperanza de que las cosas cambien. Por quien lleva una enfermedad en silencio, por quien cuida de otros sin que nadie lo cuide a él. Renueva sus fuerzas, Señor. Cumple en ellos tu promesa de que los que esperan en ti levantarán alas como las águilas, correrán y no se cansarán, caminarán y no se fatigarán.","Ayúdanos a enfrentar nuestros gigantes con fe y no con miedo. Danos sabiduría para saber qué hacer, valor para hacerlo, y humildad para reconocer que la victoria es tuya. Protege a nuestras familias esta noche. Que descansemos en paz, sabiendo que tú no duermes ni te adormeces. En el nombre de Jesús, amén."],"h":["La historia de David y Goliat se encuentra en el primer libro de Samuel, capítulo 17. El ejército de Israel estaba frente al ejército filisteo, separados por un valle. Cada mañana y cada tarde, durante cuarenta días, un guerrero filisteo llamado Goliat salía a desafiar a Israel. Era un gigante de casi tres metros de altura, con coraza de bronce y una lanza enorme. Y Saúl y todo Israel, al oírlo, se turbaron y tuvieron gran miedo.","En medio de ese miedo, llegó David, un joven pastor de Belén. Su padre lo había enviado para llevar comida a sus hermanos soldados. Cuando David escuchó a Goliat burlarse del ejército del Dios viviente, preguntó con asombro quién era ese filisteo incircunciso para provocar a los escuadrones del Dios vivo. Sus hermanos lo reprendieron, y el rey Saúl dudó: eres solo un muchacho. Pero David respondió con algo que había aprendido cuidando ovejas: Jehová, que me ha librado de las garras del león y de las garras del oso, él también me librará de este filisteo.","Saúl quiso vestirlo con su armadura, pero era demasiado pesada y David no estaba acostumbrado a ella. Tomó su cayado, escogió cinco piedras lisas del arroyo, y con su honda salió al encuentro del gigante. Goliat lo despreció. Pero David le dijo: tú vienes a mí con espada y lanza y jabalina; mas yo vengo a ti en el nombre de Jehová de los ejércitos. Lanzó la piedra, que dio en la frente del gigante, y Goliat cayó. Y todo el pueblo supo que Jehová no salva con espada ni con lanza, porque de Jehová es la batalla."],"m":["Todos tenemos un Goliat. Quizás para ti es una situación económica que no se resuelve, una enfermedad, una relación rota, un miedo que no te suelta, o un hábito que ya ha durado demasiado. Y como en aquel valle, el gigante habla fuerte y todos los días. Te dice que no puedes, que no vale la pena, que ya es tarde. Pero fíjate: Goliat desafió durante cuarenta días y nadie respondía. El miedo había paralizado a un ejército entero.","Lo primero que aprendemos de David es que miró al gigante desde la perspectiva de Dios. Los soldados veían a un hombre demasiado grande para pelear; David veía a un hombre demasiado grande para fallar. Cuando le cambias el enfoque a tus problemas, cuando los miras a la luz de quién es Dios y no de lo que tú puedes, todo cambia. No es que el problema sea pequeño. Es que Dios es más grande.","Lo segundo es que David usó lo que tenía. No tomó la armadura de otro; usó la honda que había practicado en el campo. Dios no te pide que seas otra persona. Usa tu historia, tus dones, tus experiencias, incluso las difíciles, como el león y el oso que David había enfrentado antes. Esas batallas en secreto te estaban preparando para esta.","Y lo tercero es que David corrió hacia el gigante, no huyó. Tuvo valor porque su confianza no estaba en su fuerza, sino en el Dios de sus padres. El profeta Isaías lo dice así: los que esperan en Jehová tendrán nuevas fuerzas. Esperar no es quedarse sentado; es confiar activamente, dar el paso que Dios muestra, sabiendo que él pelea contigo. Y Pablo añade: todo lo puedo en Cristo que me fortalece.","Esta tarde, antes de que termine el día, haz tres cosas. Primero, ponle nombre a tu gigante y preséntalo a Dios en oración. Segundo, recuerda una vez en que Dios te sacó adelante. Tercero, da un paso concreto, aunque sea pequeño. El salmo dice: Dios es nuestro amparo y fortaleza, nuestro pronto auxilio en las tribulaciones. Él está cerca. Que esta noche duermas sabiendo que la batalla es de Jehová."]},{"t":"La gratitud","v":["salmos 100:4","1-tesalonicenses 5:18","salmos 107:1"],"o":"Señor, gracias por la vida, por el pan de cada día y por tu amor que nunca falla. Abre mis ojos para ver tus bendiciones. En el nombre de Jesús, amén.","h":"Diez leprosos clamaron a Jesús pidiendo misericordia, y Él los sanó mientras iban de camino. Uno solo, al verse limpio, regresó glorificando a Dios a gran voz y se postró a los pies de Jesús. Jesús preguntó: «¿Y los nueve, dónde están?»","m":"Nueve recibieron el milagro; solo uno volvió a dar gracias. La gratitud nos acerca al corazón de Dios y cambia nuestra manera de mirar la vida. Hoy, antes de pedir algo, agradece tres cosas concretas. Verás cuánto te ha dado ya el Señor."},{"t":"La provisión de Dios","v":["salmos 23:1-3","proverbios 3:5-6","mateo 6:33"],"o":"Señor, tú eres mi pastor y nada me faltará. Confío en que suplirás lo que necesito hoy. Enséñame a buscar primero tu reino. En el nombre de Jesús, amén.","h":"Una multitud había seguido a Jesús todo el día y no tenía qué comer. Un muchacho ofreció cinco panes y dos peces. Jesús dio gracias, los partió, y comieron más de cinco mil personas, y aún sobraron doce cestas.","m":"Lo poco que ponemos en las manos de Jesús se convierte en suficiente. Dios no te pide que tengas todo resuelto, sino que confíes y le entregues lo que tienes. Hoy, busca primero su reino y su justicia, y lo demás vendrá por añadidura: el Pastor cuida de los suyos."}];
+function bookName(slug){for(var i=0;i<B.length;i++)if(B[i].s===slug)return B[i].n;return slug}
+function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+function arr(v){return Array.isArray(v)?v:[v]}
+function chunks(t){var o=[],c='';t.split(/(?<=[.!?:;])\s+/).forEach(function(s){if((c+' '+s).length>200&&c){o.push(c);c=s}else c=c?c+' '+s:s});if(c)o.push(c);return o}
+var MES={};
+function loadMes(k,cb){if(k in MES)return;MES[k]=null;try{fetch('hoy-'+k+'.json').then(function(r){return r.ok?r.json():null}).then(function(j){if(j){MES[k]=j;cb()}}).catch(function(){})}catch(e){}}
+var AQ=[],AI=0,AS=0;
+function aUpd(){var p=document.getElementById('aPlay');if(!p)return;p.textContent=AS===1?'⏹ Parar':(AS===2?'▶ Continuar':'🔊 Escuchar')}
+function aVoice(){var v=window.speechSynthesis.getVoices();for(var i=0;i<v.length;i++)if(/^es/i.test(v[i].lang))return v[i];return null}
+function aSpeak(){
+  if(AS!==1)return;if(AI>=AQ.length){aStop();return}
+  var u=new SpeechSynthesisUtterance(AQ[AI]);u.lang='es-ES';var v=aVoice();if(v){u.voice=v;u.lang=v.lang}u.rate=.92;
+  var nx=function(){if(AS===1){AI++;aSpeak()}};u.onend=nx;u.onerror=nx;window.speechSynthesis.speak(u);
+}
+function aPlay(){
+  if(!('speechSynthesis' in window)){alert('Tu navegador no permite el audio.');return}
+  if(AS===1){aPause();return}
+  if(AS===2){AS=1;aUpd();aSpeak();return}
+  window.speechSynthesis.cancel();AS=1;AI=0;aUpd();aSpeak();
+}
+function aPause(){if(AS===1){AS=2;window.speechSynthesis.cancel();aUpd()}}
+function aStop(){AS=0;AI=0;try{window.speechSynthesis.cancel()}catch(e){}aUpd()}
+function renderHoy(){
+  var box=document.getElementById('hoyBox');if(!box)return;
+  aStop();
+  var d=new Date(),day=Math.floor(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/864e5),pm=d.getHours()>=12?1:0;
+  var key=('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2),ev=EVT[key],ym=d.getFullYear()+'-'+key.slice(0,2),mo=MES[ym],dd=mo&&mo[key.slice(3)],fx=dd&&dd[pm?'t':'m'],x=fx||((!pm&&ev)?ev:HOY[(day*2+pm)%HOY.length]);
+  loadMes(ym,function(){if(AS===0)renderHoy()});
+  var need=x.v.slice(0,2).map(function(r){return r.split(' ')[0]}).filter(function(k){return !(k in BK)});
+  if(need.length){
+    box.innerHTML='';box.appendChild(el('h2',null,'📰 Artículo de hoy'));box.appendChild(el('p','small','Cargando…'));
+    var left=need.length;need.forEach(function(k){loadBook(k,function(){if(--left===0)renderHoy()})});return;
+  }
+  var open=pm?'Gracias, Señor, por este día; nos hiciste pasar bien la jornada. ':'Gracias, Señor, por esta nueva mañana y por la noche que me hiciste pasar bien. ';
+  var f=d.toLocaleDateString('es',{weekday:'long',day:'numeric',month:'long'}),words=0;
+  box.innerHTML='';AQ=[];
+  box.appendChild(el('h2',null,'📰 Artículo de hoy · '+(pm?'🌇 Tarde':'🌅 Mañana')));
+  box.appendChild(el('p','small',f.charAt(0).toUpperCase()+f.slice(1)));
+  box.appendChild(el('div','tm','Tema: '+x.t));
+  var au=el('div','aud');au.innerHTML='<button type="button" id="aPlay">🔊 Escuchar</button>';
+  var dur=el('p','small','');au.appendChild(dur);box.appendChild(au);
+  box.appendChild(el('h3',null,'📖 Versículos de hoy'));AQ.push('Versículos de hoy.');
+  x.v.slice(0,2).forEach(function(r){
+    var m=r.match(/^(\S+) (\d+):(\d+)(?:-(\d+))?$/),k=m[1],c=+m[2],a=+m[3],b=+(m[4]||m[3]),t=[];
+    for(var i=a;i<=b;i++){var T=BK[k];if(T&&T[c-1]&&T[c-1][i-1])t.push(T[c-1][i-1])}
+    var lab=bookName(k)+' '+c+':'+a+(b>a?'-'+b:''),w=el('div','vs');w.appendChild(el('b',null,lab));
+    w.appendChild(document.createTextNode(t.join(' ')));box.appendChild(w);
+    var tx=t.join(' ').replace(/[\[\]]/g,'');words+=tx.split(/\s+/).length;
+    AQ.push(bookName(k)+', capítulo '+c+', versículo'+(b>a?'s '+a+' al '+b:' '+a)+'.');chunks(tx).forEach(function(z){AQ.push(z)});
+  });
+  function sec(title,v,pre){
+    box.appendChild(el('h3',null,title));AQ.push(title.replace(/^\S+\s/,'')+'.');
+    arr(v).forEach(function(t,i){var z=(i===0&&pre?pre:'')+t;box.appendChild(el('p',null,z));words+=z.split(/\s+/).length;chunks(z).forEach(function(c){AQ.push(c)})});
+  }
+  sec('🙏 Oración de hoy',x.o,open);
+  sec((x===ev||x.e)?'📅 Un día como hoy':'📚 Historia de hoy',x.h);
+  if(pm&&ev&&!fx)sec('📅 Un día como hoy',ev.h);
+  sec('✝️ Mensaje de hoy',x.m);
+  dur.textContent='⏱ Duración aproximada: '+Math.max(1,Math.round(words/150))+' min';
+  document.getElementById('aPlay').onclick=aPlay;aUpd();
+  var nx=new Date(d.getFullYear(),d.getMonth(),d.getDate(),pm?24:12,0,1);
+  clearTimeout(renderHoy.t);renderHoy.t=setTimeout(renderHoy,Math.max(1000,nx-new Date()));
+}
+renderHoy();
+document.addEventListener('visibilitychange',function(){if(!document.hidden&&AS===0)renderHoy()});
+
+// ---- Buscador ----
+function norm(s){return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[.,;:]/g," ").replace(/\s+/g," ").trim();}
+function find(num,name){
+ var n=A[name]||name,i,b,base,bn;
+ for(i=0;i<B.length;i++){b=B[i];base=b.s.replace(/^[123]-/,"");bn=(b.s.match(/^[123]/)||[""])[0];if(bn===num&&base===n)return b;}
+ if(n.length>=2){for(i=0;i<B.length;i++){b=B[i];base=b.s.replace(/^[123]-/,"");bn=(b.s.match(/^[123]/)||[""])[0];if(bn===num&&base.indexOf(n)===0)return b;}}
+ return null;
+}
+function msg(t){document.getElementById("msg").textContent=t||"";}
+document.getElementById("form").addEventListener("submit",function(e){
+ e.preventDefault();msg("");
+ var q=norm(document.getElementById("q").value);
+ if(!q){msg("Escribe un libro, por ejemplo: Juan 3 16");return;}
+ var m=q.match(/^(?:([123])\s*)?([a-z]+)(?:\s+(\d+)(?:\s+(\d+))?)?$/);
+ if(!m){msg("No entendí. Prueba así: Juan 3 16");return;}
+ var b=find(m[1]||"",m[2]);
+ if(!b){msg("No encontré ese libro.");return;}
+ var c=m[3]?parseInt(m[3],10):0,v=m[4]?parseInt(m[4],10):0;
+ if(!c){location.href=(b.t==="n"?"/nuevo-testamento":"/antiguo-testamento")+"#"+b.s;return;}
+ if(c<1||c>b.c){msg(b.n+" tiene "+b.c+" capítulo"+(b.c>1?"s":"")+".");return;}
+ if(!v){location.href="/"+b.s+"/"+c;return;}
+ if(v<1||v>b.v[c-1]){msg(b.n+" "+c+" tiene "+b.v[c-1]+" versículos.");return;}
+ location.href="/"+b.s+"/"+c+"/"+v;
+});
+})();
+</script>
+</body>
+</html>

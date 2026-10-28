@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Biblia · La Palabra del Dios Viviente</title>
+<meta name="description" content="Lee la Biblia gratis en biblia-palabra-dios.com">
+<meta name="theme-color" content="#b8892f">
+<style>
+:root{--y:linear-gradient(180deg,#fcc93f 0%,#f7b82c 100%);--b:#b8892f;--bd:#9d7424;--line:#eadfbf;--muted:#555;--soft:#fbf1d6}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#f8c03a;background:radial-gradient(ellipse at 20% 15%,rgba(255,225,130,.55),transparent 55%),radial-gradient(ellipse at 85% 60%,rgba(255,215,110,.35),transparent 50%),linear-gradient(180deg,#f9c43f 0%,#f7bb34 45%,#f2ab26 100%);background-attachment:fixed;min-height:100%}
+body{color:#000;font-family:Arial,Helvetica,sans-serif;display:flex;justify-content:center;-webkit-font-smoothing:antialiased}
+.wrap{width:100%;max-width:500px;padding:10px 10px 100px}
+a{color:inherit}
+header{background:#fff;border-radius:20px;padding:16px;text-align:center}
+header h1{font-size:19px;font-weight:bold;letter-spacing:.5px}
+header p{font-size:13px;margin-top:6px;color:var(--muted)}
+.badge{display:inline-block;background:var(--y);color:#000;font-weight:bold;font-size:11px;padding:3px 8px;border-radius:10px;margin-top:8px}
+.card{background:#fff;border-radius:20px;padding:14px;margin-top:12px;text-align:center}
+.card h2{font-size:15px;color:#000;margin-bottom:8px}
+.small{font-size:14px;color:var(--muted);margin-top:6px}
+.hero{max-width:230px;margin:0 auto}
+.hero svg{width:100%;height:auto;display:block}
+.inp{width:100%;padding:12px;font-size:18px;border:2px solid var(--b);border-radius:12px;text-align:center;margin-top:8px;background:#fff;color:#000}
+.inp:focus{outline:none;border-color:var(--bd)}
+button.main{margin-top:12px;width:100%;padding:14px;font-size:16px;font-weight:bold;border:none;border-radius:999px;background:var(--y);color:#000;border:2px solid #fff;box-shadow:0 2px 6px rgba(120,80,0,.3);cursor:pointer}
+#msg{color:#a33;min-height:1.3rem;margin-top:8px;font-size:14px}
+.bk{display:flex;justify-content:space-between;align-items:center;gap:10px;text-decoration:none;background:#fff;border-radius:14px;padding:14px 16px;margin-top:8px;border:1px solid var(--line)}
+.bk .bn{font-weight:bold;font-size:16px;letter-spacing:.04em}
+.bk .bc{color:var(--muted);font-size:13px;white-space:nowrap}
+.bk:active{background:var(--soft)}
+.go{display:block;text-decoration:none;text-align:center;background:var(--y);color:#000;font-weight:bold;border-radius:999px;padding:14px;margin-top:12px;border:2px solid #fff;box-shadow:0 2px 6px rgba(120,80,0,.3)}
+.go.alt{background:#fff;color:#000;border:2px solid #f7b82c}
+.btn-of{display:inline-block;text-decoration:none;font-size:17px;font-weight:bold;color:#000;background:var(--y);padding:12px 26px;border-radius:999px;margin-top:10px;border:2px solid #fff;box-shadow:0 2px 6px rgba(120,80,0,.3)}
+.disc,footer{font-size:13px;color:#3a2a00;text-align:center;line-height:1.6;margin-top:14px}
+footer a{color:#3a2a00}
+.wrap[data-active="home"] [data-tab]:not([data-tab="home"]),
+.wrap[data-active="nt"] [data-tab]:not([data-tab="nt"]),
+.wrap[data-active="at"] [data-tab]:not([data-tab="at"]),
+.wrap[data-active="art"] [data-tab]:not([data-tab="art"]),
+.wrap[data-active="of"] [data-tab]:not([data-tab="of"]){display:none!important}
+.wrap[data-active="hoy"] [data-tab]:not([data-tab="hoy"]){display:none!important}
+.hoy h3{font-size:15px;margin:14px 0 4px;color:var(--bd)}
+.hoy p{text-align:left;font-size:15px;line-height:1.55;margin-top:6px}
+.hoy .vs{background:var(--soft);border-radius:12px;padding:10px 12px;margin-top:8px}
+.hoy .vs b{display:block;font-size:13px;color:var(--bd);margin-bottom:2px}
+.aud{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:8px 0 4px;position:sticky;top:6px;z-index:5;background:#fff;padding:6px 0}
+.aud button{width:100%;max-width:300px;font-size:17px!important;border:2px solid #fff;background:var(--y);color:#000;font-weight:bold;font-size:15px;border-radius:999px;padding:10px 14px;box-shadow:0 2px 6px rgba(120,80,0,.3);cursor:pointer}
+.aud .small{flex-basis:100%;margin:0;text-align:center}
+.hoy .tm{font-size:19px;font-weight:bold;margin:2px 0 4px}
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;justify-content:center;background:var(--y);border-top:2px solid #fff3c4;box-shadow:0 -4px 14px rgba(120,80,0,.25);padding:8px 6px calc(8px + env(safe-area-inset-bottom,0px))}
+.tabs button{flex:1;max-width:100px;background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;color:#000;font-weight:bold}
+.tabs button span{display:block;padding:6px 16px;border-radius:999px;font-size:20px;line-height:1;background:#fff;border:2px solid #fff;box-shadow:0 2px 5px rgba(120,80,0,.3)}
+.tabs button small{font-size:10px;line-height:1.1;text-align:center;color:#000;font-weight:bold}
+.tabs button.on span{border-color:#000}
+.libro{background:#fff;border-radius:16px;margin-top:10px;overflow:hidden;border:2px solid #fff;box-shadow:0 2px 6px rgba(120,80,0,.25)}
+.libro[open]{border-color:#f7b82c}
+.libro>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 16px;background:#fff}
+.libro summary::-webkit-details-marker{display:none}
+.libro>summary::after{content:"＋";font-size:22px;line-height:1;font-weight:bold;margin-left:6px}
+.libro[open]>summary::after{content:"－"}
+.libro .bn{font-weight:bold;font-size:16px;letter-spacing:.04em;margin-right:auto}
+.libro .bc{font-size:13px;color:#000;white-space:nowrap}
+.caps{padding:6px 10px 12px}
+.cap{border-top:1px dashed var(--line)}
+.cap>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:12px 6px;font-weight:bold;font-size:15px}
+.cap>summary::-webkit-details-marker{display:none}
+.cap>summary::after{content:"＋";color:var(--bd);font-size:18px}
+.cap[open]>summary::after{content:"－"}
+.cap small{font-weight:normal;color:var(--muted);font-size:13px}
+.leer{display:block;text-decoration:none;text-align:center;background:var(--y);color:#000;font-weight:bold;border-radius:999px;padding:10px;margin:2px 0 10px;border:2px solid #fff;box-shadow:0 2px 5px rgba(120,80,0,.25)}
+.vs{display:flex;flex-wrap:wrap;gap:6px;padding-bottom:10px}
+.vs a{display:inline-flex;align-items:center;justify-content:center;min-width:42px;height:42px;padding:0 6px;font-size:15px;font-weight:bold;text-decoration:none;color:#000;background:#fff;border:2px solid #f7b82c;border-radius:10px}
+.vs a:active{background:#f7b82c}
+.texto{padding:2px 6px 14px;font-size:16px;line-height:1.7;text-align:left}
+.texto p,.texto div{margin:0 0 8px}
+.texto sup,.texto .num,.texto b,.texto strong{color:var(--bd)}
+.texto a{text-decoration:none}
+.texto h2,.texto h3{font-size:16px;margin:8px 0}
+a.cap{display:flex;justify-content:space-between;align-items:center;padding:12px 6px;font-weight:bold;font-size:15px;text-decoration:none;color:#000;border-top:1px dashed var(--line)}
+a.cap i{font-style:normal;color:var(--bd);font-size:22px;line-height:1}
+a.cap:active{background:var(--soft)}
+details.cap{border-top:1px dashed var(--line)}
+.texto p{margin:0 0 10px}
+.texto b{margin-right:2px}
+
+.nav2{display:flex;gap:8px;margin-top:12px}.nav2 a{flex:1;margin:0}
+.texto p.sel{background:var(--soft);border-radius:10px;padding:6px 8px}
+</style></head><body><div class="wrap" data-active="home">
+<header><h1 id="h">Cargando…</h1><p>biblia-palabra-dios.com</p></header>
+<div class="card"><div class="texto" id="t">Cargando…</div>
+<div class="nav2"><a class="go alt" id="pv" href="#" hidden>‹ Anterior</a><a class="go alt" id="nx" href="#" hidden>Siguiente ›</a></div>
+<a class="go" href="/">🏠 Volver al inicio</a></div>
+<footer>La Palabra del Dios Viviente · biblia-palabra-dios.com</footer></div>
+<script>
+(function(){
+var p=location.pathname.replace(/^\/+|\/+$/g,'').split('/'),s=p[0],c=parseInt(p[1],10)||1,v=parseInt(p[2],10)||0;
+var t=document.getElementById('t'),h=document.getElementById('h');
+var B=[{"s":"mateo","n":"Mateo","c":28,"v":[25,23,17,25,48,34,29,34,38,42,30,50,58,36,39,28,27,35,30,34,46,46,39,51,46,75,66,20],"t":"n"},{"s":"marcos","n":"Marcos","c":16,"v":[45,28,35,41,43,56,37,38,50,52,33,44,37,72,47,20],"t":"n"},{"s":"lucas","n":"Lucas","c":24,"v":[80,52,38,44,39,49,50,56,62,42,54,59,35,35,32,31,37,43,48,47,38,71,56,53],"t":"n"},{"s":"juan","n":"Juan","c":21,"v":[51,25,36,54,47,71,53,59,41,42,57,50,38,31,27,33,26,40,42,31,25],"t":"n"},{"s":"hechos","n":"Hechos","c":28,"v":[26,47,26,37,42,15,60,40,43,48,30,25,52,28,41,40,34,28,41,38,40,30,35,27,27,32,44,31],"t":"n"},{"s":"romanos","n":"Romanos","c":16,"v":[32,29,31,25,21,23,25,39,33,21,36,21,14,23,33,27],"t":"n"},{"s":"1-corintios","n":"1 Corintios","c":16,"v":[31,16,23,21,13,20,40,13,27,33,34,31,13,40,58,24],"t":"n"},{"s":"2-corintios","n":"2 Corintios","c":13,"v":[24,17,18,18,21,18,16,24,15,18,33,21,14],"t":"n"},{"s":"galatas","n":"Gálatas","c":6,"v":[24,21,29,31,26,18],"t":"n"},{"s":"efesios","n":"Efesios","c":6,"v":[23,22,21,32,33,24],"t":"n"},{"s":"filipenses","n":"Filipenses","c":4,"v":[30,30,21,23],"t":"n"},{"s":"colosenses","n":"Colosenses","c":4,"v":[29,23,25,18],"t":"n"},{"s":"1-tesalonicenses","n":"1 Tesalonicenses","c":5,"v":[10,20,13,18,28],"t":"n"},{"s":"2-tesalonicenses","n":"2 Tesalonicenses","c":3,"v":[12,17,18],"t":"n"},{"s":"1-timoteo","n":"1 Timoteo","c":6,"v":[20,15,16,16,25,21],"t":"n"},{"s":"2-timoteo","n":"2 Timoteo","c":4,"v":[18,26,17,22],"t":"n"},{"s":"tito","n":"Tito","c":3,"v":[16,15,15],"t":"n"},{"s":"filemon","n":"Filemón","c":1,"v":[25],"t":"n"},{"s":"hebreos","n":"Hebreos","c":13,"v":[14,18,19,16,14,20,28,13,28,39,40,29,25],"t":"n"},{"s":"santiago","n":"Santiago","c":5,"v":[27,26,18,17,20],"t":"n"},{"s":"1-pedro","n":"1 Pedro","c":5,"v":[25,25,22,19,14],"t":"n"},{"s":"2-pedro","n":"2 Pedro","c":3,"v":[21,22,18],"t":"n"},{"s":"1-juan","n":"1 Juan","c":5,"v":[10,29,24,21,21],"t":"n"},{"s":"2-juan","n":"2 Juan","c":1,"v":[13],"t":"n"},{"s":"3-juan","n":"3 Juan","c":1,"v":[14],"t":"n"},{"s":"judas","n":"Judas","c":1,"v":[25],"t":"n"},{"s":"apocalipsis","n":"Apocalipsis","c":22,"v":[20,29,22,11,14,17,17,13,21,11,19,17,18,20,8,21,18,24,21,15,27,21],"t":"n"},{"s":"genesis","n":"Génesis","c":50,"v":[31,25,24,26,32,22,24,22,29,32,32,20,18,24,21,16,27,33,38,18,34,24,20,67,34,35,46,22,35,43,55,32,20,31,29,43,36,30,23,23,57,38,34,34,28,34,31,22,33,26],"t":"a"},{"s":"exodo","n":"Éxodo","c":40,"v":[22,25,22,31,23,30,25,32,35,29,10,51,22,31,27,36,16,27,25,26,36,31,33,18,40,37,21,43,46,38,18,35,23,35,35,38,29,31,43,38],"t":"a"},{"s":"levitico","n":"Levítico","c":27,"v":[17,16,17,35,19,30,38,36,24,20,47,8,59,57,33,34,16,30,37,27,24,33,44,23,55,46,34],"t":"a"},{"s":"numeros","n":"Números","c":36,"v":[54,34,51,49,31,27,89,26,23,36,35,16,33,45,41,50,13,32,22,29,35,41,30,25,18,65,23,31,40,16,54,42,56,29,34,13],"t":"a"},{"s":"deuteronomio","n":"Deuteronomio","c":34,"v":[46,37,29,49,33,25,26,20,29,22,32,32,18,29,23,22,20,22,21,20,23,30,25,22,19,19,26,68,29,20,30,52,29,12],"t":"a"},{"s":"josue","n":"Josué","c":24,"v":[18,24,17,24,15,27,26,35,27,43,23,24,33,15,63,10,18,28,51,9,45,34,16,33],"t":"a"},{"s":"jueces","n":"Jueces","c":21,"v":[36,23,31,24,31,40,25,35,57,18,40,15,25,20,20,31,13,31,30,48,25],"t":"a"},{"s":"rut","n":"Rut","c":4,"v":[22,23,18,22],"t":"a"},{"s":"1-samuel","n":"1 Samuel","c":31,"v":[28,36,21,22,12,21,17,22,27,27,15,25,23,52,35,23,58,30,24,42,15,23,29,22,44,25,12,25,11,31,13],"t":"a"},{"s":"2-samuel","n":"2 Samuel","c":24,"v":[27,32,39,12,25,23,29,18,13,19,27,31,39,33,37,23,29,33,43,26,22,51,39,25],"t":"a"},{"s":"1-reyes","n":"1 Reyes","c":22,"v":[53,46,28,34,18,38,51,66,28,29,43,33,34,31,34,34,24,46,21,43,29,53],"t":"a"},{"s":"2-reyes","n":"2 Reyes","c":25,"v":[18,25,27,44,27,33,20,29,37,36,21,21,25,29,38,20,41,37,37,21,26,20,37,20,30],"t":"a"},{"s":"1-cronicas","n":"1 Crónicas","c":29,"v":[54,55,24,43,26,81,40,40,44,14,47,40,14,17,29,43,27,17,19,8,30,19,32,31,31,32,34,21,30],"t":"a"},{"s":"2-cronicas","n":"2 Crónicas","c":36,"v":[17,18,17,22,14,42,22,18,31,19,23,16,22,15,19,14,19,34,11,37,20,12,21,27,28,23,9,27,36,27,21,33,25,33,27,23],"t":"a"},{"s":"esdras","n":"Esdras","c":10,"v":[11,70,13,24,17,22,28,36,15,44],"t":"a"},{"s":"nehemias","n":"Nehemías","c":13,"v":[11,20,32,23,19,19,73,18,38,39,36,47,31],"t":"a"},{"s":"ester","n":"Ester","c":10,"v":[22,23,15,17,14,14,10,17,32,3],"t":"a"},{"s":"job","n":"Job","c":42,"v":[22,13,26,21,27,30,21,22,35,22,20,25,28,22,35,22,16,21,29,29,34,30,17,25,6,14,23,28,25,31,40,22,33,37,16,33,24,41,30,24,34,17],"t":"a"},{"s":"salmos","n":"Salmos","c":150,"v":[6,12,8,8,12,10,17,9,20,18,7,8,6,7,5,11,15,50,14,9,13,31,6,10,22,12,14,9,11,12,24,11,22,22,28,12,40,22,13,17,13,11,5,26,17,11,9,14,20,23,19,9,6,7,23,13,11,11,17,12,8,12,11,10,13,20,7,35,36,5,24,20,28,23,10,12,20,72,13,19,16,8,18,12,13,17,7,18,52,17,16,15,5,23,11,13,12,9,9,5,8,28,22,35,45,48,43,13,31,7,10,10,9,8,18,19,2,29,176,7,8,9,4,8,5,6,5,6,8,8,3,18,3,3,21,26,9,8,24,13,10,7,12,15,21,10,20,14,9,6],"t":"a"},{"s":"proverbios","n":"Proverbios","c":31,"v":[33,22,35,27,23,35,27,36,18,32,31,28,25,35,33,33,28,24,29,30,31,29,35,34,28,28,27,28,27,33,31],"t":"a"},{"s":"eclesiastes","n":"Eclesiastés","c":12,"v":[18,26,22,16,20,12,29,17,18,20,10,14],"t":"a"},{"s":"cantares","n":"Cantares","c":8,"v":[17,17,11,16,16,13,13,14],"t":"a"},{"s":"isaias","n":"Isaías","c":66,"v":[31,22,26,6,30,13,25,22,21,34,16,6,22,32,9,14,14,7,25,6,17,25,18,23,12,21,13,29,24,33,9,20,24,17,10,22,38,22,8,31,29,25,28,28,25,13,15,22,26,11,23,15,12,17,13,12,21,14,21,22,11,12,19,12,25,24],"t":"a"},{"s":"jeremias","n":"Jeremías","c":52,"v":[19,37,25,31,31,30,34,22,26,25,23,17,27,22,21,21,27,23,15,18,14,30,40,10,38,24,22,17,32,24,40,44,26,22,19,32,21,28,18,16,18,22,13,30,5,28,7,47,39,46,64,34],"t":"a"},{"s":"lamentaciones","n":"Lamentaciones","c":5,"v":[22,22,66,22,22],"t":"a"},{"s":"ezequiel","n":"Ezequiel","c":48,"v":[28,10,27,17,17,14,27,18,11,22,25,28,23,23,8,63,24,32,14,49,32,31,49,27,17,21,36,26,21,26,18,32,33,31,15,38,28,23,29,49,26,20,27,31,25,24,23,35],"t":"a"},{"s":"daniel","n":"Daniel","c":12,"v":[21,49,30,37,31,28,28,27,27,21,45,13],"t":"a"},{"s":"oseas","n":"Oseas","c":14,"v":[11,23,5,19,15,11,16,14,17,15,12,14,16,9],"t":"a"},{"s":"joel","n":"Joel","c":3,"v":[20,32,21],"t":"a"},{"s":"amos","n":"Amós","c":9,"v":[15,16,15,13,27,14,17,14,15],"t":"a"},{"s":"abdias","n":"Abdías","c":1,"v":[21],"t":"a"},{"s":"jonas","n":"Jonás","c":4,"v":[17,10,10,11],"t":"a"},{"s":"miqueas","n":"Miqueas","c":7,"v":[16,13,12,13,15,16,20],"t":"a"},{"s":"nahum","n":"Nahúm","c":3,"v":[15,13,19],"t":"a"},{"s":"habacuc","n":"Habacuc","c":3,"v":[17,20,19],"t":"a"},{"s":"sofonias","n":"Sofonías","c":3,"v":[18,15,20],"t":"a"},{"s":"hageo","n":"Hageo","c":2,"v":[15,23],"t":"a"},{"s":"zacarias","n":"Zacarías","c":14,"v":[21,13,10,14,11,15,14,23,17,12,17,14,9,21],"t":"a"},{"s":"malaquias","n":"Malaquías","c":4,"v":[14,17,18,6],"t":"a"}],b0;for(var z=0;z<B.length;z++)if(B[z].s===s)b0=B[z];
+fetch(b0&&b0.t==='n'?'/biblia-nt.json':'/biblia-at.json').then(function(r){return r.json()}).then(function(D){
+  var T=D[s]||[],i,b;for(i=0;i<B.length;i++)if(B[i].s===s){b=B[i];break}
+  if(!b||!T[c-1]){h.textContent='No encontrado';t.innerHTML='<p>No encontramos ese pasaje.</p>';return}
+  h.textContent=b.n+' '+c+(v?':'+v:'');document.title=b.n+' '+c+(v?':'+v:'')+' · Biblia · biblia-palabra-dios.com';
+  t.textContent='';
+  T[c-1].forEach(function(x,k){var q=document.createElement('p');q.id='v'+(k+1);if(v===k+1)q.className='sel';
+    var n=document.createElement('b');n.textContent=(k+1)+' ';q.appendChild(n);q.appendChild(document.createTextNode(x));t.appendChild(q)});
+  if(v){var e=document.getElementById('v'+v);if(e)e.scrollIntoView({block:'center'})}
+  var pv=document.getElementById('pv'),nx=document.getElementById('nx'),k=B.indexOf(b);
+  if(c>1){pv.href='/'+s+'/'+(c-1);pv.hidden=false}else if(k>0){pv.href='/'+B[k-1].s+'/'+B[k-1].c;pv.hidden=false;pv.textContent='‹ '+B[k-1].n}
+  if(c<b.c){nx.href='/'+s+'/'+(c+1);nx.hidden=false}else if(k<B.length-1){nx.href='/'+B[k+1].s+'/1';nx.hidden=false;nx.textContent=B[k+1].n+' ›'}
+}).catch(function(){h.textContent='Error';t.textContent='No se pudo cargar.'});
+})();
+</script></body></html>
