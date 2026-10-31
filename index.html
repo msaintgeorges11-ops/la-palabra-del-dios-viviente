@@ -275,9 +275,7 @@ var MES={};
 function loadMes(k,cb){if(k in MES)return;MES[k]=null;try{fetch('hoy-'+k+'.json').then(function(r){return r.ok?r.json():null}).then(function(j){if(j){MES[k]=j;cb()}}).catch(function(){})}catch(e){}}
 var AQ=[],HQ=[],AI=0,AS=0,AT=0,AO=null,AR=null;
 var VSEL='',MP3P=1,RT=.92,PT=1,MP=null,MPK='',AU=null;
-try{VSEL=localStorage.getItem('vozNom')||'';MP3P=localStorage.getItem('vozMp3')==='0'?0:1;
-  var rr=parseFloat(localStorage.getItem('vozRate'));if(rr>=.6&&rr<=1.3)RT=rr;
-  var pp=parseFloat(localStorage.getItem('vozTono'));if(pp>=.5&&pp<=1.5)PT=pp}catch(e){}
+try{VSEL=localStorage.getItem('vozNom')||'';MP3P=localStorage.getItem('vozMp3')==='0'?0:1;}catch(e){}
 var MAL=/\b(jorge|juan|pablo|raul|raúl|alvaro|álvaro|diego|carlos|enrique|miguel|male|hombre|masculin|andres|andrés|antonio|gonzalo|tomas|tomás|santiago|alberto|pedro)\b/i;
 var FEM=/(female|mujer|femenin|helena|laura|sabina|elvira|dalia|paloma|monica|mónica|paulina|lucia|lucía|marisol|esperanza|ximena|camila|paola|elena|catalina|angelica|angélica|francisca)/i;
 function esVoices(){try{var v=window.speechSynthesis.getVoices().filter(function(x){return /^es/i.test(x.lang.replace('_','-'))});
@@ -347,7 +345,7 @@ function mkSel(art){
     if(art&&useMp3()&&MP){var a=new Audio(MP);AU=a;AO=null;a.onended=function(){if(AU===a)AU=null};var pl=a.play();if(pl&&pl.catch)pl.catch(function(){});return}
     var u=new SpeechSynthesisUtterance('La paz de Dios sea con ustedes. Esta es mi voz.'),v=aVoice();u.lang='es-ES';if(v){u.voice=v;u.lang=v.lang}u.rate=RT;u.pitch=PT;window.speechSynthesis.speak(u);
   });
-  w.appendChild(s);w.appendChild(r);w.appendChild(t);w.appendChild(bt);
+  w.appendChild(s);
   return w;
 }
 function chapAudio(w,b,c,txt){
