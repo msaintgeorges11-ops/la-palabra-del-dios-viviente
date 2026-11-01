@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>📰 Artículo de hoy - palabra-dios.com</title>
+<meta name="description" content="Artículo de hoy: versículos, oración, historia y mensaje del día. Cambia cada mañana y cada tarde. Gratis en palabra-dios.com.">
+<link rel="canonical" href="https://palabra-dios.com/hoy.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="La Palabra del Dios Viviente">
+<meta property="og:title" content="📰 Artículo de hoy - palabra-dios.com">
+<meta property="og:description" content="Versículos, oración, historia y mensaje del día. Cambia cada mañana y cada tarde.">
+<meta property="og:url" content="https://palabra-dios.com/hoy.html">
+<meta name="theme-color" content="#b8892f">
+<style>
+:root{--y:linear-gradient(180deg,#fcc93f 0%,#f7b82c 100%);--b:#b8892f;--bd:#9d7424;--line:#eadfbf;--muted:#555;--soft:#fbf1d6}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#f8c03a;background:radial-gradient(ellipse at 20% 15%,rgba(255,225,130,.55),transparent 55%),radial-gradient(ellipse at 85% 60%,rgba(255,215,110,.35),transparent 50%),linear-gradient(180deg,#f9c43f 0%,#f7bb34 45%,#f2ab26 100%);background-attachment:fixed;min-height:100%}
+body{color:#000;font-family:Arial,Helvetica,sans-serif;display:flex;justify-content:center;-webkit-font-smoothing:antialiased}
+.wrap{width:100%;max-width:500px;padding:10px 10px 40px}
+a{color:inherit}
+.top{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;padding:16px 6px 12px}
+.top a{font-weight:bold;font-size:18px;color:#000;text-decoration:underline}
+.art{background:#fff;border-radius:20px;padding:22px 16px 20px;margin-top:6px}
+.art h1{font-size:27px;line-height:1.2;text-align:center;font-weight:bold}
+.art .sub{text-align:center;color:var(--muted);font-size:17px;margin-top:10px}
+.art .tema{text-align:center;font-size:19px;font-weight:bold;margin-top:8px}
+.art h2{font-size:21px;color:var(--bd);margin:22px 0 6px;font-weight:bold}
+.art p{font-size:17px;line-height:1.75;margin:0 0 12px;text-align:left}
+.art .small{font-size:14px;color:var(--muted);text-align:center;margin:6px 0 0}
+.aud{display:flex;flex-direction:column;gap:10px;align-items:stretch;margin:18px 0 4px;position:sticky;top:0;z-index:5;background:#fff;padding:6px 0}
+.aBtn{width:100%;font-size:18px;border:2px solid #fff;background:var(--y);color:#000;font-weight:bold;border-radius:999px;padding:14px;box-shadow:0 2px 6px rgba(120,80,0,.3);cursor:pointer}
+.vsel{width:100%;font-size:16px;padding:12px 10px;border:2px solid var(--b);border-radius:14px;background:#fff;color:#000}
+.vs{background:var(--soft);border-radius:12px;padding:12px 14px;margin:8px 0}
+.vs b{display:block;font-size:14px;color:var(--bd);margin-bottom:3px}
+.vs span{font-size:17px;line-height:1.7}
+.shr{margin-top:22px;border-top:1px dashed var(--line);padding-top:4px;text-align:center}
+.go{display:block;text-decoration:none;text-align:center;background:var(--y);color:#000;font-weight:bold;border-radius:999px;padding:14px;margin-top:12px;border:2px solid #fff;box-shadow:0 2px 6px rgba(120,80,0,.3);width:100%;font-size:16px;cursor:pointer}
+.go.alt{background:#fff;color:#000;border:2px solid #f7b82c}
+footer{font-size:13px;color:#3a2a00;text-align:center;line-height:1.6;margin-top:16px}
+footer a{color:#3a2a00}
+.art p.rd{background:var(--soft);border-radius:8px;box-shadow:0 0 0 4px var(--soft)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="top" aria-label="Menú">
+  <a href="/">Inicio</a>
+  <a href="/about.html">Acerca de</a>
+  <a href="/contact.html">Contacto</a>
+  <a href="/privacy.html">Privacidad</a>
+</nav>
+
+<main class="art" id="art"><h1>📰 Artículo de hoy</h1><p class="small">Cargando…</p></main>
+
+<footer>La Palabra del Dios Viviente · <a href="/">palabra-dios.com</a> · biblia-palabra-dios.com</footer>
+</div>
+
+<script>
+(function(){
+var SHARE_URL='https://palabra-dios.com/hoy.html';
+var B=[],EVT={},HOY=[],BK={},FL={},MES={};
+function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+function arr(v){return Array.isArray(v)?v:[v]}
+function chunks(t){var o=[],c='';t.split(/(?<=[.!?:;])\s+/).forEach(function(s){if((c+' '+s).length>200&&c){o.push(c);c=s}else c=c?c+' '+s:s});if(c)o.push(c);return o}
+function bookName(slug){for(var i=0;i<B.length;i++)if(B[i].s===slug)return B[i].n;return slug}
+function parse(s){try{return JSON.parse(s)}catch(e){try{return (new Function('return '+s))()}catch(e2){return null}}}
+
+// ---- Los datos se leen solos desde index.html (B, EVT, HOY) ----
+function getIndex(){
+  return fetch('/index.html',{cache:'no-cache'}).then(function(r){if(!r.ok)throw 0;return r.text()})
+    .catch(function(){return fetch('/',{cache:'no-cache'}).then(function(r){if(!r.ok)throw 0;return r.text()})});
+}
+function readIndex(t){
+  var a=t.match(/var B=(\[[\s\S]*?\]);\s*var A=/),b=t.match(/var EVT=(\{[\s\S]*?\});\s*var HOY=/),c=t.match(/var HOY=(\[[\s\S]*?\]);\s*function bookName/);
+  if(!a||!b||!c)return false;
+  B=parse(a[1])||[];EVT=parse(b[1])||{};HOY=parse(c[1])||[];
+  return B.length>0&&HOY.length>0;
+}
+
+// ---- Biblia y meses ----
+function loadBook(k,cb){
+  if(k in BK){cb(BK[k]);return}
+  var t='a';for(var i=0;i<B.length;i++)if(B[i].s===k)t=B[i].t;
+  var f='/biblia-'+(t==='n'?'nt':'at')+'.json';
+  if(FL[f]&&FL[f].d){BK[k]=FL[f].d[k]||[];cb(BK[k]);return}
+  if(FL[f]){FL[f].q.push([k,cb]);return}
+  FL[f]={q:[[k,cb]]};
+  var done=function(d){FL[f].d=d;FL[f].q.forEach(function(x){BK[x[0]]=d[x[0]]||[];x[1](BK[x[0]])})};
+  try{fetch(f).then(function(r){return r.ok?r.json():{}}).then(done).catch(function(){done({})})}catch(e){done({})}
+}
+function loadMes(k,cb){if(k in MES)return;MES[k]=null;try{fetch('/hoy-'+k+'.json').then(function(r){return r.ok?r.json():null}).then(function(j){if(j){MES[k]=j;cb()}}).catch(function(){})}catch(e){}}
+
+// ---- Audio ----
+var AQ=[],HQ=[],AS=0,AI=0,AT=0,AU=null,AG='',GEN=false,MP=null,MPK='',RT=.92,PT=1,VSEL='',SRC='';
+try{VSEL=localStorage.getItem('vozNom')||'';SRC=localStorage.getItem('vozSrc')||''}catch(e){}
+if(SRC==='piper')SRC='';
+var MAL=/\b(jorge|juan|pablo|raul|raúl|alvaro|álvaro|diego|carlos|enrique|miguel|male|hombre|masculin|andres|andrés|antonio|gonzalo|tomas|tomás|santiago|alberto|pedro)\b/i;
+var FEM=/(female|mujer|femenin|helena|laura|sabina|elvira|dalia|paloma|monica|mónica|paulina|lucia|lucía|marisol|esperanza|ximena|camila|paola|elena|catalina|angelica|angélica|francisca)/i;
+function esVoices(){try{var v=window.speechSynthesis.getVoices().filter(function(x){return /^es/i.test(x.lang.replace('_','-'))});
+  v.sort(function(a,b){var r=function(x){return /es[-_]ES/i.test(x.lang)?0:(/es[-_](MX|US|419)/i.test(x.lang)?1:2)};return r(a)-r(b)});return v}catch(e){return[]}}
+function vKind(v){return MAL.test(v.name)?0:(FEM.test(v.name)?2:1)}
+function vList(){return esVoices().map(function(v,i){return{v:v,i:i}}).sort(function(a,b){return (vKind(a.v)-vKind(b.v))||(a.i-b.i)}).map(function(x){return x.v})}
+function vId(v){return v.voiceURI||v.name}
+function vLabel(v){var k=vKind(v),ic=k===0?'👨 ':(k===2?'👩 ':'🎙 '),nm=v.name.replace(/^(Google|Microsoft)\s+/i,''),u=v.voiceURI&&v.voiceURI!==v.name?' ['+v.voiceURI.replace(/^.*?(es-[a-z0-9]+-x-[a-z0-9]+).*$/i,'$1')+']':'';
+  return ic+nm+' · '+v.lang.replace('_','-')+u}
+function aVoice(){var all=vList();if(!all.length)return null;var v=VSEL&&all.filter(function(x){return vId(x)===VSEL})[0];return v||all[0]}
+function src(){var s=SRC;if(s==='mp3'&&!MP)s='';if(s==='gen'&&!GEN)s='';if(s==='mp3'||s==='gen')return s;if(MP&&!SRC)return 'mp3';return GEN?'gen':'tel'}
+function GURL(t){return '/api/tts?t='+encodeURIComponent(t)}
+try{fetch('/api/tts?ping=1').then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.ok){GEN=true;fillSel()}}).catch(function(){})}catch(e){}
+function svSet(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+function fillSel(){
+  var s=document.getElementById('vsel');if(!s)return;s.innerHTML='';
+  var add=function(v,t){var o=document.createElement('option');o.value=v;o.textContent=t;s.appendChild(o)};
+  if(MP)add('mp3','🎧 Voz natural (grabada)');
+  if(GEN)add('gen','🎙 Voz clonada (generada)');
+  var L=vList();L.forEach(function(v){add(vId(v),vLabel(v))});
+  if(!L.length)add('','🔊 Voz del teléfono');
+  var sr=src(),want=(sr==='mp3'||sr==='gen')?sr:(VSEL||(L[0]?vId(L[0]):''));
+  s.value=want;if(s.value!==want&&s.options.length)s.selectedIndex=0;
+  aUpd();
+}
+function aUpd(){var b=document.getElementById('aPlay');if(b)b.textContent=AS===1?'⏹ Parar':(AS===2?'▶ Continuar':'🔊 Escuchar')}
+function aSpeak(){
+  if(AS!==1)return;if(AI>=AQ.length){aStop();return}
+  var it=AQ[AI],tx=typeof it==='string'?it:it.t;
+  if(AG==='gen'){
+    var g=new Audio(GURL(tx));AU=g;
+    g.onended=function(){if(AU===g&&AS===1){AU=null;AI++;aSpeak()}};
+    g.onerror=function(){if(AU!==g)return;AU=null;GEN=false;AG='';fillSel();if(AS===1)aSpeak()};
+    var gp=g.play();if(gp&&gp.catch)gp.catch(function(){});
+    var nq=AQ[AI+1];if(nq){try{fetch(GURL(typeof nq==='string'?nq:nq.t)).catch(function(){})}catch(e){}}
+    return;
+  }
+  var tk=++AT,u=new SpeechSynthesisUtterance(tx),v=aVoice();u.lang='es-ES';
+  if(v){u.voice=v;u.lang=v.lang}u.rate=RT;u.pitch=PT;
+  var nx=function(){if(AS===1&&tk===AT){AI++;aSpeak()}};u.onend=nx;u.onerror=nx;window.speechSynthesis.speak(u);
+}
+function aToggle(){
+  var sr=src(),mp=sr==='mp3',gn=sr==='gen'?'gen':'';
+  if(!mp&&!gn&&!('speechSynthesis' in window)){alert('Tu navegador no permite el audio.');return}
+  if(AS===1){AS=2;AT++;if(AU)AU.pause();else window.speechSynthesis.cancel();aUpd();return}
+  if(AS===2){AS=1;aUpd();if(AU){var pr=AU.play();if(pr&&pr.catch)pr.catch(function(){})}else aSpeak();return}
+  AQ=HQ;AS=1;AI=0;AG=gn;
+  if(mp){
+    var a=new Audio(MP);AU=a;a.onended=function(){if(AU===a)aStop()};
+    a.onerror=function(){if(AU!==a)return;aStop();MP=null;fillSel();aToggle()};
+    var pl=a.play();if(pl&&pl.catch)pl.catch(function(){});
+  }else aSpeak();
+  aUpd();
+}
+function aStop(){AS=0;AI=0;AT++;if(AU){var a=AU;AU=null;try{a.pause()}catch(e){}}try{window.speechSynthesis.cancel()}catch(e){}aUpd()}
+try{window.speechSynthesis.onvoiceschanged=function(){fillSel()}}catch(e){}
+setTimeout(fillSel,600);setTimeout(fillSel,2000);
+
+// ---- Pintar el artículo ----
+function render(){
+  var box=document.getElementById('art');if(!box)return;
+  aStop();
+  var d=new Date(),day=Math.floor(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/864e5),pm=d.getHours()>=12?1:0;
+  var key=('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2),ev=EVT[key],ym=d.getFullYear()+'-'+key.slice(0,2),mo=MES[ym],dd=mo&&mo[key.slice(3)],fx=dd&&dd[pm?'t':'m'],x=fx||((!pm&&ev)?ev:HOY[(day*2+pm)%HOY.length]);
+  loadMes(ym,function(){if(AS===0)render()});
+  var mk=d.getFullYear()+'-'+key+'-'+(pm?'t':'m');
+  if(MPK!==mk){MPK=mk;MP=null;try{var mu='/audio/'+mk+'.mp3';fetch(mu,{method:'HEAD'}).then(function(r){var ct=r.headers.get('content-type')||'';if(r.ok&&!/text\/html/i.test(ct)&&MPK===mk){MP=mu;fillSel()}}).catch(function(){})}catch(e){}}
+  var need=x.v.slice(0,2).map(function(r){return r.split(' ')[0]}).filter(function(k){return !(k in BK)});
+  if(need.length){
+    box.innerHTML='';box.appendChild(el('h1',null,'📰 Artículo de hoy'));box.appendChild(el('p','small','Cargando…'));
+    var left=need.length;need.forEach(function(k){loadBook(k,function(){if(--left===0)render()})});return;
+  }
+  var open=pm?'Gracias, Señor, por este día; nos hiciste pasar bien la jornada. ':'Gracias, Señor, por esta nueva mañana y por la noche que me hiciste pasar bien. ';
+  var f=d.toLocaleDateString('es',{weekday:'long',day:'numeric',month:'long'}),words=0;
+  document.title='📰 '+x.t+' - Artículo de hoy - palabra-dios.com';
+  box.innerHTML='';HQ=[];
+  box.appendChild(el('h1',null,'📰 Artículo de hoy'));
+  box.appendChild(el('p','sub',f.charAt(0).toUpperCase()+f.slice(1)+' · '+(pm?'🌇 Tarde':'🌅 Mañana')));
+  box.appendChild(el('p','tema','Tema: '+x.t));
+  var au=el('div','aud'),bt=el('button','aBtn','🔊 Escuchar');bt.type='button';bt.id='aPlay';bt.onclick=aToggle;au.appendChild(bt);
+  var s=el('select','vsel');s.id='vsel';s.setAttribute('aria-label','Voz');
+  s.onchange=function(){
+    if(s.value==='mp3'||s.value==='gen')SRC=s.value;else{SRC='tel';VSEL=s.value;svSet('vozNom',VSEL)}
+    svSet('vozSrc',SRC);
+    var was=AS===1;fillSel();if(was){aStop();aToggle()}
+  };
+  au.appendChild(s);
+  var dur=el('p','small','');au.appendChild(dur);box.appendChild(au);
+  box.appendChild(el('h2',null,'📖 Versículos de hoy'));HQ.push('Versículos de hoy.');
+  x.v.slice(0,2).forEach(function(r){
+    var m=r.match(/^(\S+) (\d+):(\d+)(?:-(\d+))?$/);if(!m)return;
+    var k=m[1],c=+m[2],a=+m[3],b=+(m[4]||m[3]),t=[];
+    for(var i=a;i<=b;i++){var T=BK[k];if(T&&T[c-1]&&T[c-1][i-1])t.push(T[c-1][i-1])}
+    var lab=bookName(k)+' '+c+':'+a+(b>a?'-'+b:''),w=el('div','vs');w.appendChild(el('b',null,lab));
+    w.appendChild(el('span',null,t.join(' ')));box.appendChild(w);
+    var tx=t.join(' ').replace(/[\[\]]/g,'');words+=tx.split(/\s+/).length;
+    HQ.push(bookName(k)+', capítulo '+c+', versículo'+(b>a?'s '+a+' al '+b:' '+a)+'.');chunks(tx).forEach(function(z){HQ.push(z)});
+  });
+  function sec(title,v,pre){
+    box.appendChild(el('h2',null,title));HQ.push(title.replace(/^\S+\s/,'')+'.');
+    arr(v).forEach(function(t,i){var z=(i===0&&pre?pre:'')+t;box.appendChild(el('p',null,z));words+=z.split(/\s+/).length;chunks(z).forEach(function(c){HQ.push(c)})});
+  }
+  sec('🙏 Oración de hoy',x.o,open);
+  sec((x===ev||x.e)?'📅 Un día como hoy':'📚 Historia de hoy',x.h);
+  if(pm&&ev&&!fx)sec('📅 Un día como hoy',ev.h);
+  sec('✝️ Mensaje de hoy',x.m);
+  dur.textContent='⏱ Duración aproximada: '+Math.max(1,Math.round(words/150))+' min';
+
+  // Compartir
+  var ST='📰 '+x.t+' · La Palabra del Dios Viviente';
+  var sh=el('div','shr');sh.appendChild(el('h2',null,'↗️ Compartir este artículo'));
+  var wa=el('a','go');wa.textContent='↗️ Compartir por WhatsApp';wa.target='_blank';wa.rel='noopener noreferrer';
+  wa.href='https://wa.me/?text='+encodeURIComponent(ST+'\n'+SHARE_URL);sh.appendChild(wa);
+  var cp=el('button','go alt','📋 Copiar enlace para compartir');cp.type='button';
+  cp.onclick=function(){
+    var ok=function(){cp.textContent='✅ Enlace copiado';setTimeout(function(){cp.textContent='📋 Copiar enlace para compartir'},2500)},
+        fb=function(){var ta=document.createElement('textarea');ta.value=SHARE_URL;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(e){}document.body.removeChild(ta)};
+    try{navigator.clipboard.writeText(SHARE_URL).then(ok,fb)}catch(e){fb()}
+  };
+  sh.appendChild(cp);
+  var hm=el('a','go alt','← Volver al inicio');hm.href='/';sh.appendChild(hm);
+  box.appendChild(sh);
+
+  // Solo para ti: hoy.html?admin  → copiar texto para ElevenLabs
+  if(/[?&]admin\b/.test(location.search)){
+    var cb=el('button','go alt','📋 Copiar texto para ElevenLabs');cb.type='button';
+    cb.onclick=function(){var t=HQ.join(' '),ok=function(){cb.textContent='✅ Copiado'},fb=function(){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(e){}document.body.removeChild(ta)};
+      try{navigator.clipboard.writeText(t).then(ok,fb)}catch(e){fb()}};
+    box.appendChild(cb);box.appendChild(el('p','small','Guarda el MP3 como: audio/'+mk+'.mp3'));
+  }
+  fillSel();
+  var nx=new Date(d.getFullYear(),d.getMonth(),d.getDate(),pm?24:12,0,1);
+  clearTimeout(render.t);render.t=setTimeout(render,Math.max(1000,nx-new Date()));
+}
+
+function fail(){
+  var box=document.getElementById('art');box.innerHTML='';
+  box.appendChild(el('h1',null,'📰 Artículo de hoy'));
+  box.appendChild(el('p','small','No se pudo cargar el artículo. Inténtalo de nuevo en un momento.'));
+  var a=el('a','go','← Volver al inicio');a.href='/';box.appendChild(a);
+}
+getIndex().then(function(t){if(readIndex(t))render();else fail()}).catch(fail);
+document.addEventListener('visibilitychange',function(){if(!document.hidden&&AS===0&&HOY.length)render()});
+})();
+</script>
+</body>
+</html>
