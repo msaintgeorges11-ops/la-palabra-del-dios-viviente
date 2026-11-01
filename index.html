@@ -538,9 +538,9 @@ document.getElementById("form").addEventListener("submit",function(e){
  var c=m[3]?parseInt(m[3],10):0,v=m[4]?parseInt(m[4],10):0;
  if(!c){location.href=(b.t==="n"?"/nuevo-testamento":"/antiguo-testamento")+"#"+b.s;return;}
  if(c<1||c>b.c){msg(b.n+" tiene "+b.c+" capítulo"+(b.c>1?"s":"")+".");return;}
- if(!v){location.href="/"+b.s+"/"+c;return;}
+ if(!v){location.href="/leer.html?l="+b.s+"&c="+c;return;}
  if(v<1||v>b.v[c-1]){msg(b.n+" "+c+" tiene "+b.v[c-1]+" versículos.");return;}
- location.href="/"+b.s+"/"+c+"/"+v;
+ location.href="/leer.html?l="+b.s+"&c="+c+"&v="+v;
 });
 })();
 </script>
