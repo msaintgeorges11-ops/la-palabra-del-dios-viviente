@@ -512,9 +512,9 @@ function renderHoy(){
   var open=pm?'Gracias, Señor, por este día; nos hiciste pasar bien la jornada. ':'Gracias, Señor, por esta nueva mañana y por la noche que me hiciste pasar bien. ';
   var f=d.toLocaleDateString('es',{weekday:'long',day:'numeric',month:'long'}),words=0;
   box.innerHTML='';HQ=[];
-  var h2t=el('h2');h2t.innerHTML='📰 Artículo de hoy · '+(pm?NOCHE+' Noche':'🌅 Mañana');box.appendChild(h2t);
+  var h2t=el('h2');h2t.innerHTML='📰 Artículo de hoy · '+(pm?NOCHE+' Esta noche':'🌅 Esta mañana');box.appendChild(h2t);
   box.appendChild(el('p','small',f.charAt(0).toUpperCase()+f.slice(1)));
-  box.appendChild(el('div','tm','Tema: '+x.t));HQ.push({t:'Artículo de hoy. '+(pm?'Noche.':'Mañana.')},{t:f.charAt(0).toUpperCase()+f.slice(1)+'.'},{t:'Tema: '+x.t+'.'});
+  box.appendChild(el('div','tm','Tema: '+x.t));HQ.push({t:'Artículo de hoy. '+(pm?'Esta noche.':'Esta mañana.')},{t:f.charAt(0).toUpperCase()+f.slice(1)+'.'},{t:'Tema: '+x.t+'.'});
   var au=el('div','aud');au.innerHTML='<button type="button" id="aPlay" class="aBtn">🔊 Escuchar</button>';au.appendChild(mkSel(true));
   var dur=el('p','small','');au.appendChild(dur);box.appendChild(au);
   var vh=el('h3',null,'📖 Versículos de hoy');box.appendChild(vh);HQ.push({t:'Versículos de hoy.',p:vh});

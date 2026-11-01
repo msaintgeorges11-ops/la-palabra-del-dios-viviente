@@ -138,8 +138,8 @@ function render(){
   document.title='📰 '+x.t+' · Artículo de hoy | La Palabra del Dios Viviente';
   box.innerHTML='';HQ=[];
   box.appendChild(el('h1',null,'📰 Artículo de hoy'));
-  var sb=el('p','s');sb.innerHTML=f.charAt(0).toUpperCase()+f.slice(1)+' · '+(pm?NOCHE+' Noche':'🌅 Mañana');box.appendChild(sb);
-  box.appendChild(el('p','s tm','Tema: '+x.t));HQ.push({t:'Artículo de hoy. '+(pm?'Noche.':'Mañana.')},{t:f.charAt(0).toUpperCase()+f.slice(1)+'.'},{t:'Tema: '+x.t+'.'});
+  var sb=el('p','s');sb.innerHTML=f.charAt(0).toUpperCase()+f.slice(1)+' · '+(pm?NOCHE+' Esta noche':'🌅 Esta mañana');box.appendChild(sb);
+  box.appendChild(el('p','s tm','Tema: '+x.t));HQ.push({t:'Artículo de hoy. '+(pm?'Esta noche.':'Esta mañana.')},{t:f.charAt(0).toUpperCase()+f.slice(1)+'.'},{t:'Tema: '+x.t+'.'});
   var au=el('div','aud'),bt=el('button','aBtn','🔊 Escuchar');bt.type='button';bt.id='aPlay';bt.onclick=play;au.appendChild(bt);
   var sl=el('select','vsel');sl.id='aSel';sl.setAttribute('aria-label','Voz');
   sl.onchange=function(){
@@ -149,7 +149,7 @@ function render(){
   au.appendChild(sl);
   var ST='📰 '+x.t+' · La Palabra del Dios Viviente';
   var wt=el('a','aBtn');wt.innerHTML='📲 Compartir por WhatsApp'+WAI;wt.href='https://wa.me/?text='+encodeURIComponent(ST+'\n'+SHARE_URL);wt.target='_blank';wt.rel='noopener noreferrer';wt.style.cssText='display:block;text-align:center;text-decoration:none;background:#fff;border-color:#f7b82c;box-shadow:none;padding:6px 22px;font-size:13px';
-  au.appendChild(wt);
+  
   var dur=el('p','s','');au.appendChild(dur);box.appendChild(au);
   var vh=el('h2',null,'📖 Versículos de hoy');box.appendChild(vh);HQ.push({t:'Versículos de hoy.',p:vh});
   x.v.slice(0,2).forEach(function(r){
