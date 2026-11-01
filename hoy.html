@@ -139,7 +139,7 @@ function render(){
   box.innerHTML='';HQ=[];
   box.appendChild(el('h1',null,'📰 Artículo de hoy'));
   var sb=el('p','s');sb.innerHTML=f.charAt(0).toUpperCase()+f.slice(1)+' · '+(pm?NOCHE+' Noche':'🌅 Mañana');box.appendChild(sb);
-  box.appendChild(el('p','s tm','Tema: '+x.t));
+  box.appendChild(el('p','s tm','Tema: '+x.t));HQ.push({t:'Artículo de hoy. '+(pm?'Noche.':'Mañana.')},{t:f.charAt(0).toUpperCase()+f.slice(1)+'.'},{t:'Tema: '+x.t+'.'});
   var au=el('div','aud'),bt=el('button','aBtn','🔊 Escuchar');bt.type='button';bt.id='aPlay';bt.onclick=play;au.appendChild(bt);
   var sl=el('select','vsel');sl.id='aSel';sl.setAttribute('aria-label','Voz');
   sl.onchange=function(){
