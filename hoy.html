@@ -41,7 +41,7 @@ function getIndex(){
     .catch(function(){return fetch('/',{cache:'no-cache'}).then(function(r){if(!r.ok)throw 0;return r.text()})});
 }
 function readIndex(t){
-  var a=t.match(/var B=(\[[\s\S]*?\]);\s*var A=/),b=t.match(/var EVT=(\{[\s\S]*?\});\s*var HOY=/),c=t.match(/var HOY=(\[[\s\S]*?\]);\s*function bookName/);
+  var a=t.match(/var B=(\[[\s\S]*?\]);\s*var A=/),b=t.match(/var EVT=(\{[\s\S]*?\});\s*var HOY=/),c=t.match(/var HOY=(\[[\s\S]*?\]);\s*(?:var NOCHE=|function bookName)/);
   if(!a||!b||!c)return false;
   B=parse(a[1])||[];EVT=parse(b[1])||{};HOY=parse(c[1])||[];
   return B.length>0&&HOY.length>0;
@@ -151,7 +151,7 @@ function render(){
   var wt=el('a','aBtn');wt.innerHTML='📲 Compartir por WhatsApp'+WAI;wt.href='https://wa.me/?text='+encodeURIComponent(ST+'\n'+SHARE_URL);wt.target='_blank';wt.rel='noopener noreferrer';wt.style.cssText='display:block;text-align:center;text-decoration:none;background:#fff;border-color:#f7b82c;box-shadow:none;padding:6px 22px;font-size:13px';
   au.appendChild(wt);
   var dur=el('p','s','');au.appendChild(dur);box.appendChild(au);
-  box.appendChild(el('h2',null,'📖 Versículos de hoy'));HQ.push({t:'Versículos de hoy.'});
+  var vh=el('h2',null,'📖 Versículos de hoy');box.appendChild(vh);HQ.push({t:'Versículos de hoy.',p:vh});
   x.v.slice(0,2).forEach(function(r){
     var m=r.match(/^(\S+) (\d+):(\d+)(?:-(\d+))?$/);if(!m)return;
     var k=m[1],c=+m[2],a=+m[3],b=+(m[4]||m[3]),t=[];

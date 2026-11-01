@@ -517,7 +517,7 @@ function renderHoy(){
   box.appendChild(el('div','tm','Tema: '+x.t));
   var au=el('div','aud');au.innerHTML='<button type="button" id="aPlay" class="aBtn">🔊 Escuchar</button>';au.appendChild(mkSel(true));
   var dur=el('p','small','');au.appendChild(dur);box.appendChild(au);
-  box.appendChild(el('h3',null,'📖 Versículos de hoy'));HQ.push('Versículos de hoy.');
+  var vh=el('h3',null,'📖 Versículos de hoy');box.appendChild(vh);HQ.push({t:'Versículos de hoy.',p:vh});
   x.v.slice(0,2).forEach(function(r){
     var m=r.match(/^(\S+) (\d+):(\d+)(?:-(\d+))?$/),k=m[1],c=+m[2],a=+m[3],b=+(m[4]||m[3]),t=[];
     for(var i=a;i<=b;i++){var T=BK[k];if(T&&T[c-1]&&T[c-1][i-1])t.push(T[c-1][i-1])}
