@@ -28,7 +28,7 @@
 var SHARE_URL='https://biblia-palabra-dios.com/hoy.html';
 var NOCHE='<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" style="vertical-align:-5px"><defs><linearGradient id="nsk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b1d4d"/><stop offset="1" stop-color="#2f62c0"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#nsk)"/><g transform="translate(5.4 5.4) scale(.56)"><path fill="#ffe27a" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></g><g fill="#fff"><circle cx="17.8" cy="6.4" r=".85"/><circle cx="6.2" cy="7.2" r=".6"/><circle cx="19" cy="15.2" r=".6"/><circle cx="7.4" cy="17.6" r=".5"/><circle cx="13.5" cy="4.2" r=".5"/></g></svg>';
 var WAI='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" style="vertical-align:-3px;margin-left:6px"><path fill="#25D366" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/><path fill="#fff" d="M8.5 7.5c-.3 0-.7.2-.9.6-.3.6-.4 1.4.2 2.5.9 1.7 2.4 3.2 4.2 4 1.2.5 2 .3 2.5-.4.2-.3.3-.6.2-.8l-1.6-.9c-.2-.1-.4 0-.5.1l-.5.6c-.5-.2-1.6-.9-2.2-1.9l.5-.6c.1-.2.1-.4 0-.5l-.8-1.7c-.1-.2-.3-.3-.5-.3z"/></svg>';
-var B=[],EVT={},HOY=[],BK={},FL={},MES={};
+var B=[],EVT={},HOY=[],BK={},FL={},MES={},DIA={};
 function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
 function arr(v){return Array.isArray(v)?v:[v]}
 function chunks(t){var o=[],c='';t.split(/(?<=[.!?:;])\s+/).forEach(function(s){if((c+' '+s).length>200&&c){o.push(c);c=s}else c=c?c+' '+s:s});if(c)o.push(c);return o}
@@ -58,6 +58,7 @@ function loadBook(k,cb){
   var done=function(d){FL[f].d=d;FL[f].q.forEach(function(x){BK[x[0]]=d[x[0]]||[];x[1](BK[x[0]])})};
   try{fetch(f).then(function(r){return r.ok?r.json():{}}).then(done).catch(function(){done({})})}catch(e){done({})}
 }
+function loadDia(k,cb){if(k in DIA)return;DIA[k]=null;try{fetch('/hoy/'+k+'.json').then(function(r){return r.ok?r.json():null}).then(function(j){if(j){DIA[k]=j;cb()}}).catch(function(){})}catch(e){}}
 function loadMes(k,cb){if(k in MES)return;MES[k]=null;try{fetch('/hoy-'+k+'.json').then(function(r){return r.ok?r.json():null}).then(function(j){if(j){MES[k]=j;cb()}}).catch(function(){})}catch(e){}}
 
 // ---- Audio (igual que en las demás páginas) ----
@@ -124,7 +125,8 @@ function render(){
   var box=document.getElementById('art');if(!box)return;
   stop();
   var now=new Date(),d=new Date(now),hr=now.getHours(),pm=(hr>=17||hr<5)?1:0;if(hr<5)d.setDate(d.getDate()-1);var day=Math.floor(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/864e5);
-  var key=('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2),ev=EVT[key],ym=d.getFullYear()+'-'+key.slice(0,2),mo=MES[ym],dd=mo&&mo[key.slice(3)],fx=dd&&dd[pm?'t':'m'],x=fx||((!pm&&ev)?ev:HOY[(day*2+pm)%HOY.length]);
+  var key=('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2),ev=EVT[key],ym=d.getFullYear()+'-'+key.slice(0,2),mo=MES[ym],dd=DIA[key]||(mo&&mo[key.slice(3)]),fx=dd&&dd[pm?'t':'m'],x=fx||((!pm&&ev)?ev:HOY[(day*2+pm)%HOY.length]);
+  loadDia(key,function(){if(AS===0)render()});
   loadMes(ym,function(){if(AS===0)render()});
   var mk=d.getFullYear()+'-'+key+'-'+(pm?'t':'m');
   if(MPK!==mk){MPK=mk;MP=null;try{var mu='/audio/'+mk+'.mp3';fetch(mu,{method:'HEAD'}).then(function(r){var ct=r.headers.get('content-type')||'';if(r.ok&&!/text\/html/i.test(ct)&&MPK===mk){MP=mu;fill()}}).catch(function(){})}catch(e){}}
@@ -169,6 +171,7 @@ function render(){
   sec((x===ev||x.e)?'📅 Un día como hoy':'📚 Historia de hoy',x.h);
   if(pm&&ev&&!fx)sec('📅 Un día como hoy',ev.h);
   sec('✝️ Mensaje de hoy',x.m);
+  if(x.c){var cp0=el('p',null,x.c);cp0.style.cssText='text-align:center;font-weight:700;margin-top:18px';box.appendChild(cp0);words+=x.c.split(/\s+/).length;chunks(x.c).forEach(function(z){HQ.push({t:z,p:cp0})})}
   dur.textContent='⏱ Duración aproximada: '+Math.max(1,Math.round(words/150))+' min';
 
   // Compartir
