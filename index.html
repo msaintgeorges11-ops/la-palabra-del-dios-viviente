@@ -360,6 +360,8 @@ function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null
 function arr(v){return Array.isArray(v)?v:[v]}
 function chunks(t){var o=[],c='';t.split(/(?<=[.!?:;])\s+/).forEach(function(s){if((c+' '+s).length>200&&c){o.push(c);c=s}else c=c?c+' '+s:s});if(c)o.push(c);return o}
 var MES={};
+var DIA={};
+function loadDia(k,cb){if(k in DIA)return;DIA[k]=null;try{fetch('hoy/'+k+'.json').then(function(r){return r.ok?r.json():null}).then(function(j){if(j){DIA[k]=j;cb()}}).catch(function(){})}catch(e){}}
 function loadMes(k,cb){if(k in MES)return;MES[k]=null;try{fetch('hoy-'+k+'.json').then(function(r){return r.ok?r.json():null}).then(function(j){if(j){MES[k]=j;cb()}}).catch(function(){})}catch(e){}}
 var AQ=[],HQ=[],AI=0,AS=0,AT=0,AO=null,AR=null;
 var VSEL='',SRC='',RT=.92,PT=1,MP=null,MPK='',AU=null,GEN=false,AG='',PIP=false,PM=null,PQ=Promise.resolve(),PC={},PK=[],PV='es_ES-davefx-medium';
@@ -487,7 +489,8 @@ function renderHoy(){
   var box=document.getElementById('hoyBox');if(!box)return;
   if(AO&&AO.id==='aPlay')aStop();
   var now=new Date(),d=new Date(now),hr=now.getHours(),pm=(hr>=17||hr<5)?1:0;if(hr<5)d.setDate(d.getDate()-1);var day=Math.floor(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/864e5);
-  var key=('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2),ev=EVT[key],ym=d.getFullYear()+'-'+key.slice(0,2),mo=MES[ym],dd=mo&&mo[key.slice(3)],fx=dd&&dd[pm?'t':'m'],x=fx||((!pm&&ev)?ev:HOY[(day*2+pm)%HOY.length]);
+  var key=('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2),ev=EVT[key],ym=d.getFullYear()+'-'+key.slice(0,2),mo=MES[ym],dd=DIA[key]||(mo&&mo[key.slice(3)]),fx=dd&&dd[pm?'t':'m'],x=fx||((!pm&&ev)?ev:HOY[(day*2+pm)%HOY.length]);
+  loadDia(key,function(){if(AS===0)renderHoy()});
   loadMes(ym,function(){if(AS===0)renderHoy()});
   var mk=d.getFullYear()+'-'+key+'-'+(pm?'t':'m');
   if(MPK!==mk){MPK=mk;MP=null;try{var mu='audio/'+mk+'.mp3';fetch(mu,{method:'HEAD'}).then(function(r){var ct=r.headers.get('content-type')||'';if(r.ok&&!/text\/html/i.test(ct)&&MPK===mk){MP=mu;fillAll()}}).catch(function(){})}catch(e){}}
