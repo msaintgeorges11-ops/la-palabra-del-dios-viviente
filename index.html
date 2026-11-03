@@ -61,7 +61,9 @@ footer a{color:#3a2a00}
 .wrap[data-active="hoy"] [data-tab]:not([data-tab="hoy"]){display:none!important}
 .hoy h3{font-size:17px;margin:14px 0 4px;color:var(--bd)}
 .hoy p{text-align:left;font-size:15px;line-height:1.55;margin-top:6px}
-.hoy .vs{display:block;text-align:left;font-size:15px;line-height:1.55;background:var(--soft);border-radius:12px;padding:8px 12px;margin-top:6px}
+.hoy .vs{display:block;text-align:left;font-size:15px;line-height:1.55;background:#fff;border:2px solid var(--line);border-left:5px solid var(--b);border-radius:12px;padding:8px 12px;margin-top:6px;transition:background .25s}
+.hoy .vs.rd,.hoy p.rd{background:var(--soft);border-radius:12px;box-shadow:0 0 0 3px var(--soft)}
+.hoy .vs .vr{display:block;margin-top:8px}.hoy .vs .vr sup{font-size:11px;font-weight:bold;color:var(--bd)}
 .hoy .vs b{display:block;text-align:left;font-size:14px;color:var(--bd);margin-bottom:2px}
 .aud{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:8px 0 4px;position:sticky;top:6px;z-index:5;background:#fff;padding:6px 0}
 .aud button{width:100%;max-width:300px;font-size:15px!important;border:2px solid #fff;background:var(--y);color:#000;font-weight:bold;font-size:14px;border-radius:999px;padding:10px 14px;box-shadow:0 2px 6px rgba(120,80,0,.3);cursor:pointer}
@@ -556,13 +558,13 @@ function renderHoy(){
     var m=r.match(/^(\S+) (\d+):(\d+)(?:-(\d+))?$/),k=m[1],c=+m[2],a=+m[3],b=+(m[4]||m[3]),t=[];
     for(var i=a;i<=b;i++){var T=BK[k];if(T&&T[c-1]&&T[c-1][i-1])t.push(T[c-1][i-1])}
     var lab=bookName(k)+' '+c+':'+a+(b>a?'-'+b:''),w=el('div','vs');w.appendChild(el('b',null,lab));
-    w.appendChild(document.createTextNode(t.join(' ')));box.appendChild(w);
+    t.forEach(function(vt,vi){var vr=el('span','vr');vr.appendChild(el('sup',null,String(a+vi)));vr.appendChild(document.createTextNode(' '+vt));w.appendChild(vr)});box.appendChild(w);
     var tx=t.join(' ').replace(/[\[\]]/g,'');words+=tx.split(/\s+/).length;
-    HQ.push(bookName(k)+', capítulo '+c+', versículo'+(b>a?'s '+a+' al '+b:' '+a)+'.');chunks(tx).forEach(function(z){HQ.push(z)});
+    HQ.push({t:bookName(k)+', capítulo '+c+', versículo'+(b>a?'s '+a+' al '+b:' '+a)+'.',p:w});chunks(tx).forEach(function(z){HQ.push({t:z,p:w})});
   });
   function sec(title,v,pre){
     box.appendChild(el('h3',null,title));HQ.push(title.replace(/^\S+\s/,'')+'.');
-    arr(v).forEach(function(t,i){var z=(i===0&&pre?pre:'')+t;box.appendChild(el('p',null,z));words+=z.split(/\s+/).length;chunks(z).forEach(function(c){HQ.push(c)})});
+    arr(v).forEach(function(t,i){var z=(i===0&&pre?pre:'')+t;var pe=el('p',null,z);box.appendChild(pe);words+=z.split(/\s+/).length;chunks(z).forEach(function(c){HQ.push({t:c,p:pe})})});
   }
   sec('🙏 Oración de hoy',x.o,open);
   sec((x===ev||x.e)?'📅 Un día como hoy':'📚 Historia de hoy',x.h);
@@ -581,7 +583,7 @@ function renderHoy(){
   sh.appendChild(cp);box.appendChild(sh);
   if(/[?&]admin\b/.test(location.search)){
     var cb=el('button',null,'📋 Copiar texto para ElevenLabs');cb.type='button';
-    cb.onclick=function(){var t=HQ.join(' '),ok=function(){cb.textContent='✅ Copiado'},fb=function(){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(e){}document.body.removeChild(ta)};
+    cb.onclick=function(){var t=HQ.map(function(i){return typeof i==='string'?i:i.t}).join(' '),ok=function(){cb.textContent='✅ Copiado'},fb=function(){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(e){}document.body.removeChild(ta)};
       try{navigator.clipboard.writeText(t).then(ok,fb)}catch(e){fb()}};
     au.appendChild(cb);au.appendChild(el('p','small','Guarda el MP3 como: audio/'+mk+'.mp3'));
   }
