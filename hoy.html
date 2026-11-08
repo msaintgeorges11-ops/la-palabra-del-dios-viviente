@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>📰 Artículo de hoy | La Palabra del Dios Viviente</title>
-<meta name="description" content="Artículo de hoy: versículos, oración, historia y mensaje del día. Cambia cada mañana y cada tarde.">
+<title>Palabra de Dios de hoy – Evangelio y versículos del día | La Palabra del Dios Viviente</title>
+<meta name="description" content="Palabra de Dios de hoy: versículos de la Biblia, oración, historia y reflexión del día. Evangelio y mensaje nuevo cada mañana y cada tarde.">
 <link rel="canonical" href="https://biblia-palabra-dios.com/hoy.html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="📰 Artículo de hoy | La Palabra del Dios Viviente">
-<meta property="og:description" content="Versículos, oración, historia y mensaje del día. Cambia cada mañana y cada tarde.">
+<meta property="og:title" content="Palabra de Dios de hoy – Evangelio y versículos del día | La Palabra del Dios Viviente">
+<meta property="og:description" content="Palabra de Dios de hoy: versículos de la Biblia, oración, historia y reflexión del día. Evangelio y mensaje nuevo cada mañana y cada tarde.">
 <meta property="og:url" content="https://biblia-palabra-dios.com/hoy.html">
 <meta name="theme-color" content="#b8892f">
 <style>
@@ -26,7 +26,7 @@
 <body>
 <div class="w">
 <nav class="nv"><a href="/">Inicio</a><a href="/about.html">Acerca de</a><a href="/contact.html">Contacto</a><a href="/privacy.html">Privacidad</a></nav>
-<div class="c" id="art"><h1>📰 Artículo de hoy</h1><p class="s">Cargando…</p></div>
+<div class="c" id="art"><h1>📰 Palabra de Dios de hoy</h1><p class="s">Cargando…</p></div>
 <a class="go alt" href="/articulos.html">📰 Todos los artículos</a>
 <a class="go alt" href="/">← Inicio</a>
 </div>
@@ -140,14 +140,14 @@ function render(){
   if(MPK!==mk){MPK=mk;MP=null;try{var mu='/audio/'+mk+'.mp3';fetch(mu,{method:'HEAD'}).then(function(r){var ct=r.headers.get('content-type')||'';if(r.ok&&!/text\/html/i.test(ct)&&MPK===mk){MP=mu;fill()}}).catch(function(){})}catch(e){}}
   var need=x.v.slice(0,2).map(function(r){return r.split(' ')[0]}).filter(function(k){return !(k in BK)});
   if(need.length){
-    box.innerHTML='';box.appendChild(el('h1',null,'📰 Artículo de hoy'));box.appendChild(el('p','s','Cargando…'));
+    box.innerHTML='';box.appendChild(el('h1',null,'📰 Palabra de Dios de hoy'));box.appendChild(el('p','s','Cargando…'));
     var left=need.length;need.forEach(function(k){loadBook(k,function(){if(--left===0)render()})});return;
   }
   var open=pm?'Gracias, Señor, por este día; nos hiciste pasar bien la jornada. ':'Gracias, Señor, por esta nueva mañana y por la noche que me hiciste pasar bien. ';
   var f=d.toLocaleDateString('es',{weekday:'long',day:'numeric',month:'long'}),words=0;
-  document.title='📰 '+x.t+' · Artículo de hoy | La Palabra del Dios Viviente';
+  document.title='Palabra de Dios de hoy: '+x.t+' | La Palabra del Dios Viviente';
   box.innerHTML='';HQ=[];
-  box.appendChild(el('h1',null,'📰 Artículo de hoy'));
+  box.appendChild(el('h1',null,'📰 Palabra de Dios de hoy'));
   var sb=el('p','s');sb.innerHTML=f.charAt(0).toUpperCase()+f.slice(1)+' · '+(pm?NOCHE+' Esta noche':'🌅 Esta mañana');box.appendChild(sb);
   box.appendChild(el('p','s tm','Tema: '+x.t));HQ.push({t:'Artículo de hoy. '+(pm?'Esta noche.':'Esta mañana.')},{t:f.charAt(0).toUpperCase()+f.slice(1)+'.'},{t:'Tema: '+x.t+'.'});
   var au=el('div','aud'),bt=el('button','aBtn','🔊 Escuchar');bt.type='button';bt.id='aPlay';bt.onclick=play;au.appendChild(bt);
@@ -208,7 +208,7 @@ function render(){
 
 function fail(){
   var box=document.getElementById('art');box.innerHTML='';
-  box.appendChild(el('h1',null,'📰 Artículo de hoy'));
+  box.appendChild(el('h1',null,'📰 Palabra de Dios de hoy'));
   box.appendChild(el('p','s','No se pudo cargar el artículo. Inténtalo de nuevo en un momento.'));
 }
 getIndex().then(function(t){if(readIndex(t))render();else fail()}).catch(fail);
