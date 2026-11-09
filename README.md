@@ -7,4 +7,4 @@
 - 20 artículos sobre fe, infierno, paraíso y oración
 - 20 preguntas y respuestas sobre el nombre de Dios
 
-Sitio web: https://biblia-palabra-dios.com
+Sitio web: https://www.biblia-palabra-dios.com
