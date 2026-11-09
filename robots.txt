@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://biblia-palabra-dios.com/sitemap.xml
+Sitemap: https://www.biblia-palabra-dios.com/sitemap.xml
