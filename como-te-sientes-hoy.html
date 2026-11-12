@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¿Cómo te sientes hoy? Un versículo para ti | La Palabra del Dios Viviente</title>
+<meta name="description" content="Elige cómo te sientes (ansiedad, miedo, tristeza, soledad, esperanza...) y recibe un versículo de la Biblia, una reflexión y una oración corta. Comparte la tarjeta por WhatsApp.">
+<link rel="canonical" href="https://www.biblia-palabra-dios.com/como-te-sientes-hoy.html">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<link rel="manifest" href="/manifest.json">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="La Palabra del Dios Viviente">
+<meta property="og:title" content="¿Cómo te sientes hoy? Un versículo para ti">
+<meta property="og:description" content="Elige cómo te sientes y recibe un versículo de la Biblia, una reflexión y una oración corta.">
+<meta property="og:url" content="https://www.biblia-palabra-dios.com/como-te-sientes-hoy.html">
+<meta property="og:image" content="https://www.biblia-palabra-dios.com/og-image.jpg">
+<meta name="theme-color" content="#b8892f">
+<style>
+:root{--y:linear-gradient(180deg,#fcc93f 0%,#f7b82c 100%);--b:#b8892f;--bd:#9d7424;--line:#eadfbf;--muted:#555;--soft:#fbf1d6}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#f8c03a;background:radial-gradient(ellipse at 20% 15%,rgba(255,225,130,.55),transparent 55%),radial-gradient(ellipse at 85% 60%,rgba(255,215,110,.35),transparent 50%),linear-gradient(180deg,#f9c43f 0%,#f7bb34 45%,#f2ab26 100%);background-attachment:fixed;min-height:100%}
+body{color:#000;font-family:Arial,Helvetica,sans-serif;display:flex;justify-content:center;-webkit-font-smoothing:antialiased}
+.wrap{width:100%;max-width:500px;padding:10px 10px 40px}
+a{color:inherit}
+header{background:#fff;border-radius:20px;padding:16px;text-align:center}
+header h1{font-size:20px;font-weight:bold;letter-spacing:.5px}
+header p{font-size:14px;margin-top:6px;color:var(--muted)}
+.card{background:#fff;border-radius:20px;padding:14px;margin-top:12px}
+.card h2{font-size:16px;color:var(--bd);margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.chip{font-family:inherit;font-size:15px;font-weight:bold;border:1px solid var(--line);background:#fff;color:#000;padding:10px 14px;border-radius:999px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--y);border:2px solid var(--b);padding:9px 13px}
+#result[hidden]{display:none}
+.vcard{background:#fff;color:#000;border:3px solid #f7b82c;box-shadow:inset 0 0 0 4px #fff,inset 0 0 0 5px #eadfbf;border-radius:16px;padding:24px 20px;text-align:center}
+.vcard .ref{color:#9d7424;font-weight:bold;font-size:18px;margin-bottom:10px}
+.vcard .txt{font-size:18px;line-height:1.5}
+.vcard .site{font-size:12px;color:#555;margin-top:14px}
+.note{font-size:13px;color:var(--muted);margin-top:8px}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.btn{flex:1 1 130px;font-family:inherit;font-size:15px;font-weight:bold;padding:13px 10px;border-radius:999px;background:var(--y);color:#000;border:2px solid #fff;box-shadow:0 2px 6px rgba(120,80,0,.3);cursor:pointer;text-align:center;text-decoration:none}
+.btn.alt{background:#fff;border:2px solid #f7b82c;box-shadow:none}
+.btn.wa{background:#25D366;color:#fff;border-color:#fff}
+.go{display:block;text-decoration:none;text-align:center;background:var(--y);color:#000;font-weight:bold;border-radius:999px;padding:14px;margin-top:12px;border:2px solid #fff;box-shadow:0 2px 6px rgba(120,80,0,.3)}
+.go.alt{background:#fff;border:2px solid #f7b82c;box-shadow:none}
+.card p.body{font-size:16px;line-height:1.6}
+.prayer{border-left:5px solid var(--b);background:var(--soft);border-radius:12px;padding:10px 12px;font-size:16px;line-height:1.6}
+footer{font-size:14px;color:#3a2a00;text-align:center;line-height:1.6;margin-top:14px}
+footer a{color:#3a2a00}
+@media(prefers-color-scheme:dark){html,body{background:#2a2110}header,.card{background:#1f1a10;color:#f3ead2}header p,.note{color:#bbb}.card h2{color:#f7b82c}.chip{background:#1f1a10;color:#f3ead2;border-color:#4a3d1c}.chip[aria-pressed="true"]{background:var(--y);color:#000}.btn.alt,.go.alt{background:#1f1a10;color:#f3ead2}.prayer{background:#2a2110}footer,footer a{color:#f3ead2}.vcard{background:#fff;color:#000}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>💛 ¿Cómo te sientes hoy?</h1>
+  <p>Elige una opción y recibe un versículo, una reflexión y una oración corta.</p>
+</header>
+
+<section class="card" aria-labelledby="h-elegir">
+  <h2 id="h-elegir">Hoy me siento…</h2>
+  <div class="chips" id="chips"></div>
+</section>
+
+<section id="result" hidden>
+  <div class="card">
+    <h2>Tu versículo</h2>
+    <div class="vcard" id="vcard">
+      <p class="ref" id="ref"></p>
+      <p class="txt" id="txt"></p>
+      <p class="site">biblia-palabra-dios.com</p>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Para pensar</h2>
+    <p class="body" id="reflection"></p>
+  </div>
+  <div class="card">
+    <h2>Una oración corta</h2>
+    <p class="prayer" id="prayer"></p>
+  </div>
+  <div class="card">
+    <h2>Y ahora…</h2>
+    <div class="btns">
+      <a class="btn alt" id="read" href="/">📖 Leer en la Biblia</a>
+      <button class="btn alt" id="another" type="button">Otro versículo</button>
+    </div>
+    <p class="note">Resumen con palabras propias. Lee el texto completo en la Biblia con el botón «Leer en la Biblia».</p>
+    <h2 style="margin-top:18px">Comparte este versículo</h2>
+    <p class="note" style="margin:0 0 4px">Envíaselo a alguien que lo necesite hoy.</p>
+    <div class="btns">
+      <button class="btn" id="share" type="button">Compartir tarjeta</button>
+      <a class="btn wa" id="wa" href="#" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn alt" id="fb" href="#" target="_blank" rel="noopener">Facebook</a>
+    </div>
+    <p class="note" id="msg" role="status"></p>
+  </div>
+</section>
+
+<a class="go" href="/hoy.html">📰 Artículo de hoy</a>
+<a class="go alt" href="/">← Inicio</a>
+
+<footer>La Palabra del Dios Viviente · biblia-palabra-dios.com</footer>
+</div>
+
+<script>
+var DATA = {
+  ansiedad: {
+    label: "Ansioso",
+    verses: [
+      {ref:"Filipenses 4:6-7", txt:"No te angusties por nada. Cuéntale a Dios lo que necesitas, con gratitud, y su paz cuidará tu corazón y tus pensamientos."},
+      {ref:"1 Pedro 5:7", txt:"Pon en manos de Dios todas tus preocupaciones, porque él cuida de ti."},
+      {ref:"Mateo 6:34", txt:"No vivas angustiado por el mañana; cada día trae sus propias preocupaciones."}
+    ],
+    reflection:"La ansiedad suele vivir en el futuro: en lo que podría pasar. La Biblia no te pide fingir que no hay problemas; te invita a entregarlos uno por uno y a vivir el día de hoy. Respira, di en voz alta lo que te pesa y suéltalo en oración.",
+    prayer:"Señor, hoy pongo en tus manos lo que me preocupa. Calma mi mente y dame la paz que no viene de mis fuerzas. Ayúdame a confiar en ti un día a la vez. Amén."
+  },
+  miedo: {
+    label: "Con miedo",
+    verses: [
+      {ref:"Isaías 41:10", txt:"No tengas miedo, porque Dios está contigo; él te da fuerza y te sostiene."},
+      {ref:"Josué 1:9", txt:"Sé valiente y esfuérzate. Dios va contigo adondequiera que vayas."},
+      {ref:"Salmo 56:3", txt:"Cuando siento miedo, pongo mi confianza en Dios."}
+    ],
+    reflection:"Valentía no es ausencia de miedo, sino dar el siguiente paso sabiendo que no vas solo. Piensa en una cosa pequeña que puedas hacer hoy a pesar del miedo, y hazla con la promesa de que Dios te acompaña.",
+    prayer:"Dios mío, tengo miedo, pero creo que estás conmigo. Dame valor para avanzar y calma mi corazón. Sé mi refugio hoy y siempre. Amén."
+  },
+  tristeza: {
+    label: "Triste",
+    verses: [
+      {ref:"Salmo 34:18", txt:"Dios está cerca de los que tienen el corazón roto y rescata a los que están abatidos."},
+      {ref:"Salmo 30:5", txt:"El llanto puede durar una noche, pero la alegría llega con la mañana."},
+      {ref:"Mateo 11:28", txt:"Jesús invita a los cansados y cargados a acercarse a él para encontrar descanso."}
+    ],
+    reflection:"Está bien estar triste; muchas personas de la Biblia lloraron delante de Dios. No tienes que explicar todo ni verte fuerte. Si la tristeza dura mucho tiempo o te impide vivir, habla también con alguien de confianza o con un profesional de la salud.",
+    prayer:"Señor, estoy cansado y triste. Acércate a mí, consuela mi corazón y devuélveme poco a poco la alegría. Gracias por no dejarme solo. Amén."
+  },
+  soledad: {
+    label: "Solo",
+    verses: [
+      {ref:"Deuteronomio 31:6", txt:"Sé fuerte y valiente: Dios mismo va contigo, no te dejará ni te abandonará."},
+      {ref:"Mateo 28:20", txt:"Jesús promete estar con sus seguidores todos los días, hasta el fin."},
+      {ref:"Salmo 27:10", txt:"Aunque mis propios padres me abandonen, Dios me recibirá."}
+    ],
+    reflection:"Sentirse solo duele, incluso rodeado de gente. La promesa de la Biblia es que hay Alguien que no se va. Además de orar, da un paso pequeño hoy: escribe a una persona, ve a una reunión o ayuda a alguien. La compañía de Dios también se vive a través de otros.",
+    prayer:"Dios, hoy me siento solo. Hazme sentir tu compañía y pon personas buenas en mi camino. Enséñame a acercarme a otros también. Amén."
+  },
+  esperanza: {
+    label: "Sin esperanza",
+    verses: [
+      {ref:"Jeremías 29:11", txt:"Dios dice que tiene planes de paz y de futuro para su pueblo, no de mal."},
+      {ref:"Romanos 15:13", txt:"Que el Dios de la esperanza te llene de alegría y paz al confiar en él."},
+      {ref:"Lamentaciones 3:22-23", txt:"La bondad de Dios no se acaba; se renueva cada mañana."}
+    ],
+    reflection:"Cuando todo parece cerrado, la esperanza bíblica no es «todo saldrá como quiero», sino «Dios sigue obrando». Mañana es una nueva oportunidad. Hoy basta con no rendirte y pedir fuerza para el siguiente paso.",
+    prayer:"Señor, mi esperanza está cansada. Renuévala esta mañana. Muéstrame una puerta abierta y dame fuerza para no rendirme. Amén."
+  },
+  paz: {
+    label: "Sin paz",
+    verses: [
+      {ref:"Juan 14:27", txt:"Jesús deja su paz a sus seguidores y les dice que no se angustien ni tengan miedo."},
+      {ref:"Isaías 26:3", txt:"Dios mantiene en perfecta paz a quien confía en él y le es fiel."},
+      {ref:"Salmo 4:8", txt:"Me acuesto y duermo en paz, porque tú, Señor, me das seguridad."}
+    ],
+    reflection:"La paz de la que habla la Biblia no depende de que todo esté en orden. Es una calma que se aprende confiando. Antes de dormir, haz una lista corta de lo que te preocupa, entrégala en oración y déjala fuera de la cama.",
+    prayer:"Padre, dame tu paz. Calma mi mente, ordena mis pensamientos y enséñame a descansar en ti esta noche. Amén."
+  },
+  fuerza: {
+    label: "Sin fuerzas",
+    verses: [
+      {ref:"Filipenses 4:13", txt:"Con la fuerza que Cristo me da, puedo enfrentar todo lo que viene."},
+      {ref:"Isaías 40:31", txt:"Los que esperan en Dios renuevan sus fuerzas y no se cansan."},
+      {ref:"Salmo 46:1", txt:"Dios es nuestro refugio y nuestra fuerza, una ayuda siempre presente en la angustia."}
+    ],
+    reflection:"Cansancio y debilidad no significan fracaso. La Biblia habla de recibir fuerza, no de tenerla siempre. Descansa si lo necesitas, ora, y da un solo paso a la vez. No tienes que resolver toda tu vida hoy.",
+    prayer:"Señor, estoy sin fuerzas. Renuévame por dentro, sostenme en este día difícil y ayúdame a dar el siguiente paso. Amén."
+  },
+  gratitud: {
+    label: "Agradecido",
+    verses: [
+      {ref:"1 Tesalonicenses 5:18", txt:"Da gracias a Dios en toda circunstancia; esa es su voluntad para ti."},
+      {ref:"Salmo 107:1", txt:"Den gracias a Dios porque es bueno y su amor dura para siempre."},
+      {ref:"Salmo 100:4", txt:"Entra a su presencia con gratitud y alábalo con alegría."}
+    ],
+    reflection:"Dar gracias cambia la mirada: nos hace notar lo que sí tenemos. Hoy escribe tres cosas concretas por las que estás agradecido y dilas en voz alta a Dios. Si puedes, agradece también a una persona.",
+    prayer:"Gracias, Dios, por la vida, por mi familia, por lo que tengo y por lo que aún espero. Que mi corazón siempre sepa agradecer. Amén."
+  }
+};
+
+var chipsEl = document.getElementById('chips');
+var cur = null, idx = 0;
+
+Object.keys(DATA).forEach(function(k){
+  var b = document.createElement('button');
+  b.type = 'button'; b.className = 'chip'; b.textContent = DATA[k].label;
+  b.setAttribute('aria-pressed','false'); b.dataset.k = k;
+  b.addEventListener('click', function(){ pick(k); });
+  chipsEl.appendChild(b);
+});
+
+var SLUG = {"Filipenses":"filipenses","Pedro":"pedro","Mateo":"mateo","Isaías":"isaias","Josué":"josue","Salmo":"salmos","Deuteronomio":"deuteronomio","Juan":"juan","Jeremías":"jeremias","Romanos":"romanos","Lamentaciones":"lamentaciones","Tesalonicenses":"tesalonicenses"};
+function bibleUrl(ref){
+  var m = ref.match(/^(?:(\d)\s)?(\S+)\s(\d+):(\d+)/);
+  if (!m || !SLUG[m[2]]) return '/leer.html';
+  var s = SLUG[m[2]]; if (m[1]) s = m[1] + '-' + s;
+  return '/' + s + '/' + m[3] + '/' + m[4];
+}
+function pick(k){
+  cur = k; idx = Math.floor(Math.random()*DATA[k].verses.length);
+  [].forEach.call(chipsEl.children, function(c){ c.setAttribute('aria-pressed', c.dataset.k===k ? 'true':'false'); });
+  document.getElementById('result').hidden = false;
+  document.getElementById('reflection').textContent = DATA[k].reflection;
+  document.getElementById('prayer').textContent = DATA[k].prayer;
+  show();
+  document.getElementById('result').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function show(){
+  var v = DATA[cur].verses[idx];
+  document.getElementById('ref').textContent = v.ref;
+  document.getElementById('txt').textContent = '“' + v.txt + '”';
+  var text = v.ref + ': ' + v.txt + ' — biblia-palabra-dios.com';
+  var url = location.href.split('#')[0];
+  document.getElementById('wa').href = 'https://wa.me/?text=' + encodeURIComponent(text + ' ' + url);
+  document.getElementById('fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+  document.getElementById('read').href = bibleUrl(v.ref);
+  document.getElementById('msg').textContent = '';
+}
+
+document.getElementById('another').addEventListener('click', function(){
+  var n = DATA[cur].verses.length;
+  idx = (idx + 1) % n; show();
+});
+
+function wrap(ctx, text, x, y, maxW, lh){
+  var words = text.split(' '), line = '', lines = [];
+  words.forEach(function(w){
+    var t = line ? line + ' ' + w : w;
+    if (ctx.measureText(t).width > maxW && line){ lines.push(line); line = w; } else { line = t; }
+  });
+  if (line) lines.push(line);
+  lines.forEach(function(l,i){ ctx.fillText(l, x, y + i*lh); });
+  return y + lines.length*lh;
+}
+
+function makeImage(cb){
+  var v = DATA[cur].verses[idx], S = 1080;
+  var c = document.createElement('canvas'); c.width = S; c.height = S;
+  var ctx = c.getContext('2d');
+  ctx.fillStyle = '#f7b82c'; ctx.fillRect(0,0,S,S);
+  ctx.fillStyle = '#ffffff'; ctx.fillRect(28,28,S-56,S-56);
+  ctx.strokeStyle = '#eadfbf'; ctx.lineWidth = 4; ctx.strokeRect(52,52,S-104,S-104);
+  ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+  ctx.font = '54px Georgia, serif';
+  var q = '\u201c' + v.txt + '\u201d', words = q.split(' '), n = 1, ln = '';
+  words.forEach(function(w){ var tt = ln ? ln + ' ' + w : w; if (ctx.measureText(tt).width > 860 && ln){ n++; ln = w; } else { ln = tt; } });
+  var blockH = 64 + 90 + n*78, top = Math.max(150, (S - blockH)/2);
+  ctx.fillStyle = '#9d7424'; ctx.font = 'bold 64px Georgia, serif';
+  ctx.fillText(v.ref, S/2, top + 64);
+  ctx.fillStyle = '#000000'; ctx.font = '54px Georgia, serif';
+  wrap(ctx, q, S/2, top + 64 + 110, 860, 78);
+  ctx.fillStyle = '#555555'; ctx.font = '36px Arial, sans-serif';
+  ctx.fillText('biblia-palabra-dios.com', S/2, 990);
+  c.toBlob(cb, 'image/png');
+}
+
+document.getElementById('share').addEventListener('click', function(){
+  var msg = document.getElementById('msg');
+  var v = DATA[cur].verses[idx];
+  var text = v.ref + ': ' + v.txt + ' — biblia-palabra-dios.com';
+  makeImage(function(blob){
+    var file;
+    try { file = new File([blob], 'versiculo.png', {type:'image/png'}); } catch(e) { file = null; }
+    if (file && navigator.canShare && navigator.canShare({files:[file]})){
+      navigator.share({files:[file], text:text}).catch(function(){});
+    } else {
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob); a.download = 'versiculo.png';
+      document.body.appendChild(a); a.click(); a.remove();
+      msg.textContent = 'Tu tarjeta se guardó como imagen. Ya puedes compartirla.';
+    }
+  });
+});
+</script>
+</body>
+</html>
